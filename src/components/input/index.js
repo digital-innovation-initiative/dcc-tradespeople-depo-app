@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import FormControl from 'react-bootstrap/FormControl';
 import { InputGroup } from 'react-bootstrap';
-import { ReactComponent as EyeIcon } from './eye.svg';
+import { ReactComponent as EyeIcon } from './eye-show.svg';
+import { ReactComponent as EyeHideIcon } from './eye-hide.svg';
 
 const StyledInputGroup = styled(InputGroup)`
   border: 1px solid #dfdfdf;
   border-radius: 4px;
+  margin: 10px 0px;
 `;
 
 const StyledFormCtrl = styled(FormControl)`
@@ -33,6 +35,7 @@ const StyledInput = ({ className, ...props}) => (
 
 const IconContainer = styled(InputGroup.Text)`
   background-color: #fff;
+  cursor: pointer;
   &&& {
     border: none;
     border-radius: 0 3px 3px 0;
@@ -41,12 +44,15 @@ const IconContainer = styled(InputGroup.Text)`
 
 
 export const PasswordInput = (props) => {
+  const [ showPwd, setShowPwd ] = useState(false);
   return (
     <StyledInputGroup>
-      <StyledFormCtrl type='password' {...props} placeholder='Password' />
+      <StyledFormCtrl
+        type={showPwd ? 'text' : 'password'} {...props}
+        placeholder='Password' />
       <InputGroup.Append>
-      <IconContainer>
-        <EyeIcon />
+      <IconContainer onClick={() => setShowPwd(!showPwd)}>
+        {showPwd ? <EyeHideIcon /> : <EyeIcon />}
       </IconContainer>
       </InputGroup.Append>
   </StyledInputGroup>
