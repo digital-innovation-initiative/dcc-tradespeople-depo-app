@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import DCCLogo from './dcc-logo.png';
 import './App.css';
 import StyledFormCtrl, { PasswordInput } from './components/input';
 import Button from './components/button';
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={DCCLogo} className="App-logo" alt="logo" />
         <StyledFormCtrl placeholder='DCC Mobile Number' />
         <PasswordInput />
         <Button>Sign in</Button>
