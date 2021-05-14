@@ -1,22 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import StyledFormCtrl, { PasswordInput } from './components/input';
+import Button from './components/button';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import StatusBadge from './components/status-badge';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <StyledFormCtrl placeholder='DCC Mobile Number' />
+        <PasswordInput />
+        <Button>Sign in</Button>
+        <StatusBadge variant="primary">Routine</StatusBadge>
+        <StatusBadge variant="danger">Danger</StatusBadge>
+        <StatusBadge variant="warning">Urgent</StatusBadge>
       </header>
     </div>
   );
