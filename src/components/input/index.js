@@ -4,6 +4,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import { InputGroup } from 'react-bootstrap';
 import { ReactComponent as EyeIcon } from './eye-show.svg';
 import { ReactComponent as EyeHideIcon } from './eye-hide.svg';
+import { ReactComponent as GreenCheckIcon } from './green-tick-circle.svg';
 
 const StyledInputGroup = styled(InputGroup)`
   border: 1px solid #dfdfdf;
@@ -17,6 +18,7 @@ const StyledFormCtrl = styled(FormControl)`
   box-shadow: none;
   font-size: 16px;
   border: none;
+  height: 56px;
   &::placeholder {
     color: rgba(0, 0, 0, 0.37);
     letter-spacing: normal;
@@ -58,5 +60,21 @@ export const PasswordInput = (props) => {
   </StyledInputGroup>
   )
 };
+
+export const InputWithValidity = ({ valid, ...props }) => {
+  return (
+    <StyledInputGroup>
+      <StyledFormCtrl {...props} />
+      {
+        valid
+          ? <InputGroup.Append>
+              <IconContainer>
+                <GreenCheckIcon />
+              </IconContainer>
+            </InputGroup.Append> 
+          : null}
+  </StyledInputGroup>
+  )
+}
 
 export default StyledInput;
