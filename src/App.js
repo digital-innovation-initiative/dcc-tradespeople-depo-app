@@ -4,12 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import StatusBadge from './components/status-badge';
 import { Container } from 'react-bootstrap';
 import SignInPage from './pages/sign-in';
+import Dashboard from './pages/dashboard';
 
 function App() {
   return (
     <div className="App">
       <Container>
-        <SignInPage />
+        {/* <SignInPage /> */}
+        <Dashboard />
         <StatusBadge variant="primary">Routine</StatusBadge>
         <StatusBadge variant="danger">Danger</StatusBadge>
         <StatusBadge variant="warning">Urgent</StatusBadge>

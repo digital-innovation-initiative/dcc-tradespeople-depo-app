@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Badge from 'react-bootstrap/Badge';
 
-const StatusBadgeRoot = styled(Badge)`
+const StatusBadge = styled(Badge)`
   font-size: 12px;
   font-weight: 600;
   border: 1px solid;
@@ -30,4 +30,4 @@ const StatusBadgeRoot = styled(Badge)`
   }}
 `;
 
-export default StatusBadgeRoot;
+export default StatusBadge;
