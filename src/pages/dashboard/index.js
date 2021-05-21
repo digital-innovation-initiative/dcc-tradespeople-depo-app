@@ -4,11 +4,20 @@ import styled from 'styled-components';
 import StatusBadge from '../../components/status-badge';
 import Button from '../../components/button';
 
-const H3 = styled.h3`
+const H2 = styled.h2`
   font-family: 'Open Sans';
   font-weight: 600;
   font-size: 16px;
   color: #000000;
+  margin: 0;
+  padding: .375rem 0;
+`;
+
+const H3 = styled.h3`
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-size: 16px;
+  color: #212121;
   margin: 0;
   padding: .375rem 0;
 `;
@@ -18,7 +27,8 @@ const P = styled.p`
   color: #212121;
   font-family: 'Open Sans';
   text-align: left;
-  padding-right: 35px;
+  padding-right: 30px;
+  margin-bottom: 40px;
 `;
 
 const StyledRow = styled(Row)`
@@ -62,7 +72,7 @@ const ListItem = ({ title, jobId, priority }) => {
   return (
     <StyledRow xs={12} md={9}>
       <HeaderRow>
-        <H3>{title}</H3>
+        <H2>{title}</H2>
         <Button variant='link'>View</Button>
       </HeaderRow>
       <div className='d-flex my-1 justify-content-center'>
@@ -79,9 +89,9 @@ const ListItem = ({ title, jobId, priority }) => {
 const Dashboard = () => {
   return (
     <Container>
-      <ListItem title={'Burst Kitchen Pipe'} priority='emergency'/>
+      <ListItem title={'Burst Kitchen Pipe'} priority='emergency' />
       <ListItem title={'Sink tap not running'}  priority='urgent' />
-      <ListItem title={'Install sink fixtures'}/>
+      <ListItem title={'Install sink fixtures'} />
     </Container> 
   )
 }
