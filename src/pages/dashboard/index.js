@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import StatusBadge from '../../components/status-badge';
 import Button from '../../components/button';
+import separator from '../../components/css/separator';
 
 const H2 = styled.h2`
   font-family: 'Open Sans';
@@ -33,9 +34,9 @@ const P = styled.p`
 `;
 
 const StyledRow = styled(Row)`
-  border-bottom: 1px solid #E5E5E5;
   flex-direction: column;
   align-items: flex-start;
+  ${separator}
 `;
 
 const HeaderRow = styled(Row)`
