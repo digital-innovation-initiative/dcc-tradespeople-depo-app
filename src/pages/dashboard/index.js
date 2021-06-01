@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import StatusBadge from '../../components/status-badge';
 import Button from '../../components/button';
+import separator from '../../components/css/separator';
 
 const H2 = styled.h2`
   font-family: 'Open Sans';
@@ -20,6 +21,7 @@ const H3 = styled.h3`
   color: #212121;
   margin: 0;
   padding: .375rem 0;
+  text-align: left;
 `;
 
 const P = styled.p`
@@ -32,9 +34,9 @@ const P = styled.p`
 `;
 
 const StyledRow = styled(Row)`
-  border-bottom: 1px solid #E5E5E5;
   flex-direction: column;
   align-items: flex-start;
+  ${separator}
 `;
 
 const HeaderRow = styled(Row)`
@@ -89,6 +91,9 @@ const ListItem = ({ title, jobId, priority }) => {
 const Dashboard = () => {
   return (
     <Container>
+      <Row className='mb-3'>
+        <H3>My Jobs</H3>
+      </Row>
       <ListItem title={'Burst Kitchen Pipe'} priority='emergency' />
       <ListItem title={'Sink tap not running'}  priority='urgent' />
       <ListItem title={'Install sink fixtures'} />
