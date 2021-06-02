@@ -11,9 +11,8 @@ function App() {
     <div className="App">
       <Menu pageTitle='Dashboard'/>
       <Container>
-        <SignInPage />
+        {/* <SignInPage /> */}
         <Dashboard />
-      
       </Container>
     </div>
   );
