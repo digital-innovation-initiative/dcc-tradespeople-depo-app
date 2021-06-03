@@ -11,6 +11,10 @@ import InfoPill from '../../components/info-pill';
 import IconContainer from '../../components/icon-container';
 import { ReactComponent as CareIcon } from '../../icons/care.svg';
 import { ReactComponent as LocationIcon } from '../../icons/location.svg';
+import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
+import { ReactComponent as ArrowRightIcon } from '../../icons/arrow-right.svg';
+import Button from '../../components/button';
+
 import A from '../../components/A';
 
 const RowWithSeparator = styled(Row)`
@@ -47,7 +51,7 @@ const DetailPage = (props) => {
         <P>Tenant is an OAP living alone.</P>
         <IconContainer><CareIcon /></IconContainer>
       </Row>
-      <Row>
+      <RowWithSeparator>
         <P>Address</P>
         <P>
           Mr D.Ward <br />
@@ -56,6 +60,14 @@ const DetailPage = (props) => {
           DUBLIN 8 <br />
         </P>
         <A><LocationIcon /> Get Directions</A>
+        <A><PhoneIcon /> +353 869 34545</A>
+      </RowWithSeparator>
+      <RowWithSeparator>
+        <P>Repair History</P>
+        <ArrowRightIcon />
+      </RowWithSeparator>
+      <Row>
+        <Button>Report Complete</Button>
       </Row>
     </Container>
   );
