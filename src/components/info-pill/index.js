@@ -8,4 +8,5 @@ export default styled.span`
   font-weight: 400;
   padding: 6px 30px;
   border-radius: 16px;
+  max-width: fit-content;
 `;

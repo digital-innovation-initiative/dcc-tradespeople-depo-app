@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
-import styled from 'styled-components';
+import { Col, Container, Row } from 'react-bootstrap';
+import styled, { css } from 'styled-components';
 import separator from '../../components/css/separator';
 import H2 from '../../components/H2';
 import H3 from '../../components/H3';
@@ -22,17 +22,58 @@ const RowWithSeparator = styled(Row)`
   padding-bottom: 30px;
 `;
 
-const DetailPage = (props) => {
+const spaceContent = css`
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+`;
+
+const TitleRow = styled(RowWithSeparator)`
+  &&& {
+    ${spaceContent}
+  }
+`;
+
+const SpacedRow = styled(Row)`
+  &&& {
+    ${spaceContent}
+  }
+`;
+
+// const LeftAlignedRow = styled(Row)`
+//   align-content: flex-end;
+//   align-items: flex-end;
+// `;
+
+const LeftAlignCol = styled(Col)`
+  ${H4} {
+    text-align: left;
+  }
+  flex-basis: auto;
+  width: auto;
+  flex-grow: 0;
+  ${Col}:first-child {
+    padding-left: 0;
+  }
+  ${Col}:last-child {
+    padding-right: 0;
+  }
+`;
+
+const JobDescriptionRow = styled(Row)`
+  margin-bottom: 36px;
+`;
+const DetailPage = () => {
   return (
     <Container>
-      <RowWithSeparator>
+      <TitleRow>
         <H2>Burst Kitchen Pipe</H2>
         <StatusBadge priority='emergency' />
-      </RowWithSeparator>
-      <Row>
+      </TitleRow>
+      <SpacedRow>
         <H3>Description</H3>
         <H3 alt>#9597926</H3>
-      </Row>
+      </SpacedRow>
       <Row>
         <H4>Issue</H4>
         <P>
@@ -40,10 +81,34 @@ const DetailPage = (props) => {
           water flooding the interior of the property.
         </P>
       </Row>
-      <Row>
-        <H4>Affected Utility</H4>
-        <InfoPill>Boiler</InfoPill>
-      </Row>
+      <JobDescriptionRow>
+        <LeftAlignCol>
+          <H4>Affected Utility</H4>
+          <InfoPill>Boiler</InfoPill>
+        </LeftAlignCol>
+
+        <LeftAlignCol>
+          <H4>Make</H4>
+          <InfoPill>Vokèra</InfoPill>
+        </LeftAlignCol>
+
+        <LeftAlignCol>
+          <H4>Model</H4>
+          <InfoPill>32C</InfoPill>
+        </LeftAlignCol>
+
+      </JobDescriptionRow>
+      <JobDescriptionRow>
+        <LeftAlignCol>
+          <H4>Location of Issue</H4>
+          <InfoPill>Bathroom</InfoPill>
+        </LeftAlignCol>
+
+        <LeftAlignCol>
+          <H4>Category</H4>
+          <InfoPill>Plumbing</InfoPill>
+        </LeftAlignCol>
+      </JobDescriptionRow>
       <Row>
         <H4>
           Considerations
