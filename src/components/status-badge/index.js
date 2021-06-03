@@ -5,6 +5,7 @@ const StatusBadge = styled(Badge)`
   font-size: 12px;
   font-weight: 600;
   border: 1px solid;
+  height: 24px;
   ${props => {
     switch (props.variant) {
       case 'primary': //routine
@@ -30,4 +31,28 @@ const StatusBadge = styled(Badge)`
   }}
 `;
 
-export default StatusBadge;
+const JobStatus = ({ priority }) => {
+  switch (priority) {
+    case 'urgent':
+      return (
+        <StatusBadge variant='warning'>
+          Urgent
+        </StatusBadge>
+      );
+    case 'emergency':
+      return (
+        <StatusBadge variant='danger'>
+          Emergency
+        </StatusBadge>
+      );
+    case 'routine': //routine
+      default: 
+        return (
+          <StatusBadge>
+            Routine
+          </StatusBadge>
+        );
+  }
+}
+
+export default JobStatus;

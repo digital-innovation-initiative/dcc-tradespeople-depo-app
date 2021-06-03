@@ -17,6 +17,7 @@ const MenuContainer = styled(MaxWidthContainer)`
   display: flex;
   align-items: center;
   user-select: none;
+  margin-bottom: 48px;
 `;
 
 const Icon = styled(MenuIcon)`

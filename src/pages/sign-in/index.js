@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import phone from 'phone';
 import _ from 'lodash';
 
+
 const IRELAND_COUNTRY_CODE = 'IE';
 const MINIMUM_PASSWORD_CHARS = 5;
 const StyledRow = styled(Row)`
@@ -79,9 +80,10 @@ const SignInPage = () => {
 
       <StyledRow className='justify-content-center'>
         <Col xs={7} md={8}>
-          <Button disabled={!formData.password.isValid || !formData.phone.isValid}>
-            Sign in
-          </Button>
+        <Button disabled={!formData.password.isValid || !formData.phone.isValid}>
+          Sign in
+        </Button>
+          
         </Col>
       </StyledRow>
     </form>
