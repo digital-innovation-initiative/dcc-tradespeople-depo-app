@@ -10,6 +10,8 @@ import StatusBadge from '../../components/status-badge';
 import InfoPill from '../../components/info-pill';
 import IconContainer from '../../components/icon-container';
 import { ReactComponent as CareIcon } from '../../icons/care.svg';
+import { ReactComponent as LocationIcon } from '../../icons/location.svg';
+import A from '../../components/A';
 
 const RowWithSeparator = styled(Row)`
   ${separator}
@@ -44,6 +46,16 @@ const DetailPage = (props) => {
         </H4>
         <P>Tenant is an OAP living alone.</P>
         <IconContainer><CareIcon /></IconContainer>
+      </Row>
+      <Row>
+        <P>Address</P>
+        <P>
+          Mr D.Ward <br />
+          32 Strand Road <br />
+          Cork Place <br />
+          DUBLIN 8 <br />
+        </P>
+        <A><LocationIcon /> Get Directions</A>
       </Row>
     </Container>
   );
