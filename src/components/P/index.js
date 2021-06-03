@@ -7,4 +7,5 @@ export default styled.p`
   text-align: left;
   padding-right: 30px;
   margin-bottom: 40px;
+  display: block;
 `;

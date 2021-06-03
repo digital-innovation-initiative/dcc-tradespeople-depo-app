@@ -7,4 +7,5 @@ export default styled.h4`
   font-size: 12px;
   font-weight: 600;
   line-height: 24px;
+  display: block;
 `;

@@ -20,6 +20,7 @@ import A from '../../components/A';
 const RowWithSeparator = styled(Row)`
   ${separator}
   padding-bottom: 30px;
+  margin-top: 30px;
 `;
 
 const spaceContent = css`
@@ -40,11 +41,6 @@ const SpacedRow = styled(Row)`
   }
 `;
 
-// const LeftAlignedRow = styled(Row)`
-//   align-content: flex-end;
-//   align-items: flex-end;
-// `;
-
 const LeftAlignCol = styled(Col)`
   ${H4} {
     text-align: left;
@@ -63,24 +59,43 @@ const LeftAlignCol = styled(Col)`
 const JobDescriptionRow = styled(Row)`
   margin-bottom: 36px;
 `;
-const DetailPage = () => {
+
+const JobDetail = ({ title, children, separator }) => {
+  const RowComponent = separator
+    ? RowWithSeparator
+    : Row;
+
+  return (
+    <RowComponent>
+      <Col className='px-0'>
+        <H4 className='text-left'>{title}</H4>
+        {children}
+      </Col>
+    </RowComponent>
+  );
+}
+
+const DetailPage = (props) => {
   return (
     <Container>
+      
       <TitleRow>
         <H2>Burst Kitchen Pipe</H2>
         <StatusBadge priority='emergency' />
       </TitleRow>
+
       <SpacedRow>
         <H3>Description</H3>
         <H3 alt>#9597926</H3>
       </SpacedRow>
-      <Row>
-        <H4>Issue</H4>
-        <P>
+
+      <JobDetail title='Issue'>
+        <P className='pr-1'>
           Pipe under the kitchen sink has burst with
           water flooding the interior of the property.
         </P>
-      </Row>
+      </JobDetail>
+      
       <JobDescriptionRow>
         <LeftAlignCol>
           <H4>Affected Utility</H4>
@@ -96,8 +111,8 @@ const DetailPage = () => {
           <H4>Model</H4>
           <InfoPill>32C</InfoPill>
         </LeftAlignCol>
-
       </JobDescriptionRow>
+
       <JobDescriptionRow>
         <LeftAlignCol>
           <H4>Location of Issue</H4>
@@ -109,23 +124,36 @@ const DetailPage = () => {
           <InfoPill>Plumbing</InfoPill>
         </LeftAlignCol>
       </JobDescriptionRow>
-      <Row>
-        <H4>
-          Considerations
-        </H4>
-        <P>Tenant is an OAP living alone.</P>
-        <IconContainer><CareIcon /></IconContainer>
-      </Row>
+
+      <JobDetail title='Considerations' separator>
+        <P className='pr-1'>
+          Tenant is an OAP living alone.
+          <IconContainer>
+            <CareIcon />
+          </IconContainer>
+        </P>
+      </JobDetail>
+
       <RowWithSeparator>
-        <P>Address</P>
-        <P>
+        <Col>
+        <P className='mb-3'>
+          Address
+        </P>
+        <P className='mb-4'>
           Mr D.Ward <br />
           32 Strand Road <br />
           Cork Place <br />
           DUBLIN 8 <br />
         </P>
-        <A><LocationIcon /> Get Directions</A>
-        <A><PhoneIcon /> +353 869 34545</A>
+        <A>
+          <LocationIcon />
+          Get Directions
+        </A>
+        <A>
+          <PhoneIcon />
+            +353 869 34545
+        </A>
+        </Col>
       </RowWithSeparator>
       <RowWithSeparator>
         <P>Repair History</P>
