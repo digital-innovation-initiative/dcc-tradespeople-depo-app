@@ -1,77 +1,41 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import styled, { css } from 'styled-components';
-import separator from '../../components/css/separator';
+
 import H2 from '../../components/H2';
 import H3 from '../../components/H3';
-import H4 from '../../components/H4';
 import P from '../../components/P';
 import StatusBadge from '../../components/status-badge';
-import InfoPill from '../../components/info-pill';
 import IconContainer from '../../components/icon-container';
 import { ReactComponent as CareIcon } from '../../icons/care.svg';
 import { ReactComponent as LocationIcon } from '../../icons/location.svg';
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
-import { ReactComponent as ArrowRightIcon } from '../../icons/arrow-right.svg';
 import Button from '../../components/button';
-
 import A from '../../components/A';
 
-const RowWithSeparator = styled(Row)`
-  ${separator}
-  padding-bottom: 30px;
-  margin-top: 30px;
-`;
+import { RowWithSeparator, SpacedRow, TitleRow, JobDescriptionRow } from './layout';
+import Detail from './detail';
+import JobAttribute from './attribute';
+import RepairHistoryButton from './repair-history-btn';
 
-const spaceContent = css`
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 25px;
-`;
+const Description = ({ jobId }) => (
+  <SpacedRow>
+    <H3>Description</H3>
+    <H3 alt>#{jobId}</H3>
+  </SpacedRow>
+);
 
-const TitleRow = styled(RowWithSeparator)`
-  &&& {
-    ${spaceContent}
-  }
-`;
-
-const SpacedRow = styled(Row)`
-  &&& {
-    ${spaceContent}
-  }
-`;
-
-const LeftAlignCol = styled(Col)`
-  ${H4} {
-    text-align: left;
-  }
-  flex-basis: auto;
-  width: auto;
-  flex-grow: 0;
-  ${Col}:first-child {
-    padding-left: 0;
-  }
-  ${Col}:last-child {
-    padding-right: 0;
-  }
-`;
-
-const JobDescriptionRow = styled(Row)`
-  margin-bottom: 36px;
-`;
-
-const JobDetail = ({ title, children, separator }) => {
-  const RowComponent = separator
-    ? RowWithSeparator
-    : Row;
-
+const IconA = ({ icon, children }) => {
   return (
-    <RowComponent>
-      <Col className='px-0'>
-        <H4 className='text-left'>{title}</H4>
-        {children}
-      </Col>
-    </RowComponent>
+    <A>
+      <Row className='py-3'>
+        <Col xs={1}>
+          {icon}
+        </Col>
+        <Col className='text-left'>
+          {children}
+        </Col>
+      </Row>
+    </A>
   );
 }
 
@@ -84,80 +48,70 @@ const DetailPage = (props) => {
         <StatusBadge priority='emergency' />
       </TitleRow>
 
-      <SpacedRow>
-        <H3>Description</H3>
-        <H3 alt>#9597926</H3>
-      </SpacedRow>
+      <Description jobId='9597926' />
 
-      <JobDetail title='Issue'>
+      <Detail title='Issue'>
         <P className='pr-1'>
           Pipe under the kitchen sink has burst with
           water flooding the interior of the property.
         </P>
-      </JobDetail>
+      </Detail>
       
       <JobDescriptionRow>
-        <LeftAlignCol>
-          <H4>Affected Utility</H4>
-          <InfoPill>Boiler</InfoPill>
-        </LeftAlignCol>
+        <JobAttribute
+          name='Affected Utility'
+          value='Boiler'/>
 
-        <LeftAlignCol>
-          <H4>Make</H4>
-          <InfoPill>Vokèra</InfoPill>
-        </LeftAlignCol>
+        <JobAttribute
+          name='Make'
+          value='Vokèra'/>
 
-        <LeftAlignCol>
-          <H4>Model</H4>
-          <InfoPill>32C</InfoPill>
-        </LeftAlignCol>
+        <JobAttribute
+          name='Model'
+          value='32C' />
       </JobDescriptionRow>
 
       <JobDescriptionRow>
-        <LeftAlignCol>
-          <H4>Location of Issue</H4>
-          <InfoPill>Bathroom</InfoPill>
-        </LeftAlignCol>
+        <JobAttribute
+          name='Location of Issue'
+          value='Bathroom' />
 
-        <LeftAlignCol>
-          <H4>Category</H4>
-          <InfoPill>Plumbing</InfoPill>
-        </LeftAlignCol>
+        <JobAttribute
+          name='Category'
+          value='Plumbing' />
       </JobDescriptionRow>
 
-      <JobDetail title='Considerations' separator>
+      <Detail title='Considerations' separator>
         <P className='pr-1'>
           Tenant is an OAP living alone.
           <IconContainer>
             <CareIcon />
           </IconContainer>
         </P>
-      </JobDetail>
+      </Detail>
 
       <RowWithSeparator>
-        <Col>
-        <P className='mb-3'>
-          Address
-        </P>
-        <P className='mb-4'>
-          Mr D.Ward <br />
-          32 Strand Road <br />
-          Cork Place <br />
-          DUBLIN 8 <br />
-        </P>
-        <A>
-          <LocationIcon />
-          Get Directions
-        </A>
-        <A>
-          <PhoneIcon />
+        <Col className='px-0'>
+          <P className='mb-3'>
+            Address
+          </P>
+          <P className='mb-4'>
+            Mr D.Ward <br />
+            32 Strand Road <br />
+            Cork Place <br />
+            DUBLIN 8 <br />
+          </P>
+          <IconA icon={<LocationIcon />}>
+            Get Directions
+          </IconA>
+          <IconA icon={<PhoneIcon />}>
             +353 869 34545
-        </A>
+          </IconA>
         </Col>
       </RowWithSeparator>
+
       <RowWithSeparator>
-        <P>Repair History</P>
-        <ArrowRightIcon />
+        <RepairHistoryButton to='/history' />
       </RowWithSeparator>
       <Row>
         <Button>Report Complete</Button>
@@ -165,5 +119,6 @@ const DetailPage = (props) => {
     </Container>
   );
 }
+
 
 export default DetailPage;

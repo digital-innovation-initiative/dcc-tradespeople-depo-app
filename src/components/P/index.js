@@ -5,7 +5,11 @@ export default styled.p`
   color: #212121;
   font-family: 'Open Sans';
   text-align: left;
-  padding-right: 30px;
-  margin-bottom: 40px;
+  ${props => props.noSpacing
+    ? `` 
+    : `
+      padding-right: 30px;
+      margin-bottom: 40px;
+    `}
   display: block;
 `;
