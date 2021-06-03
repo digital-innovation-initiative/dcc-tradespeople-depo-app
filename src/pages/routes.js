@@ -6,6 +6,8 @@ import {
 } from 'react-router-dom';
 import Dashboard from './dashboard';
 import SignInPage from './sign-in';
+import JobDetail from './job-detail';
+
 
 const Routes = () => {
   return (
@@ -13,6 +15,7 @@ const Routes = () => {
       <Switch>
         <Route exact path='/' component={SignInPage} />
         <Route path='/dashboard' component={Dashboard} />
+        <Route path='/detail' component={JobDetail} />
       </Switch>
     </Router>
   );

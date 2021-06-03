@@ -30,4 +30,28 @@ const StatusBadge = styled(Badge)`
   }}
 `;
 
-export default StatusBadge;
+const JobStatus = ({ priority }) => {
+  switch (priority) {
+    case 'urgent':
+      return (
+        <StatusBadge variant='warning'>
+          Urgent
+        </StatusBadge>
+      );
+    case 'emergency':
+      return (
+        <StatusBadge variant='danger'>
+          Emergency
+        </StatusBadge>
+      );
+    case 'routine': //routine
+      default: 
+        return (
+          <StatusBadge>
+            Routine
+          </StatusBadge>
+        );
+  }
+}
+
+export default JobStatus;
