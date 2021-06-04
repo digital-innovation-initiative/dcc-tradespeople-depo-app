@@ -1,11 +1,13 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import { Portal } from 'react-portal';
 import { ReactComponent as MenuIcon } from './menu.svg';
 import { ReactComponent as AvatarIcon } from './avatar.svg';
 import { version } from '../../../package.json';
 import separator from '../css/separator';
+import H4 from '../H4';
+import { Link } from 'react-router-dom';
 
 const MaxWidthContainer = styled(Container)`
   max-width: 100vw;
@@ -44,8 +46,7 @@ const MenuButton = styled.button`
   border: none;
 `;
 
-const StyledDrawer = styled(Row)`
-  background-color: white;
+const StyledDrawer = styled.div`
   margin-top: 55px;
   ${separator}
 `;
@@ -54,33 +55,76 @@ const MenuRoot = styled(MaxWidthContainer)`
   height: 100vh;
   z-index: 1000;
   padding: 0;
-  background-color: red;
-  display: none;
+  background-color: #fff;
+  position: absolute;
+  width: 80%;
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.14),
+    0px 6px 30px rgba(0, 0, 0, 0.12),
+    0px 8px 10px rgba(0, 0, 0, 0.2);
+  display: ${props => props.display ? 'block' : 'none'};
 `;
 
-const SubText = styled.span`
-  color: #8C8C8C;
+const VersionText = styled(H4)`
+  && {
+    text-transform: none;
+    font-weight: 400;
+  }
 `;
 
-const MenuDrawer = (props) => {
+const MenuLink = styled(Link)`
+  color: #676767;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  &:hover {
+    text-decoration: none;
+    color: #676767;
+  }
+`;
+
+const MenuDrawer = ({ display }) => {
   return (
     <Portal node={document && document.getElementById('menu-root')}>
-      <MenuRoot>
+      <MenuRoot className='px-3' display={display}>
         <StyledDrawer sm={3} className='no-gutters'>
-          <AvatarIcon />
-          <H1>Ryan Grant</H1>
-          <H1>{process.env.REACT_APP_NAME}</H1>
-          <SubText>Version {version}</SubText>
+          <Row className='align-items-center pb-4'>
+            <Col className='flex-grow-0'>
+              <AvatarIcon />
+            </Col>
+            <Col className='pl-0'>
+              <H1>Ryan Grant</H1>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col xs={12}>
+              <H1>
+                {process.env.REACT_APP_TRADESMAN_BUILD_NAME}
+              </H1>
+            </Col>
+            <Col xs={12}>
+              <VersionText>
+                Version {version}
+              </VersionText>
+            </Col>
+          </Row>
         </StyledDrawer>
+
+        <Row>
+            <Col>
+              <MenuLink>
+                Job Dashboard
+              </MenuLink>
+            </Col>
+          </Row>
       </MenuRoot>  
     </Portal>
   )
 }
 
-const Menu = ({ pageTitle, showBack }) => {
+const Menu = ({ pageTitle, display }) => {
   return (
       <MenuContainer>
-        <MenuDrawer />
+        <MenuDrawer display={display} />
         <MenuButton>
           <Icon />
         </MenuButton>
@@ -88,7 +132,6 @@ const Menu = ({ pageTitle, showBack }) => {
           {pageTitle}
         </NavHeader>
       </MenuContainer>
-    
   );
 };
 
