@@ -7,7 +7,7 @@ import {
 import Dashboard from './dashboard';
 import SignInPage from './sign-in';
 import JobDetail from './job-detail';
-
+import JobHistory from './job-history';
 
 const Routes = () => {
   return (
@@ -16,6 +16,7 @@ const Routes = () => {
         <Route exact path='/' component={SignInPage} />
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/detail' component={JobDetail} />
+        <Route path='/history' component={JobHistory} />
       </Switch>
     </Router>
   );

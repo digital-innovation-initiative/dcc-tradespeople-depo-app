@@ -14,6 +14,12 @@ export default styled.h3`
         font-family: 'Open Sans';
       `
   }
+  ${
+    props => props.black ? `
+      color: #212121;
+    `
+    : ''
+  }
   margin: 0;
   padding: .375rem 0;
   text-align: left;
