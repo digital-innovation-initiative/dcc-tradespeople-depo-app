@@ -7,8 +7,7 @@ import H2 from '../../components/H2';
 import P from '../../components/P';
 import separator from '../../components/css/separator';
 
-const UL = styled.ul`
-`;
+const UL = styled.ul``;
 const LI = styled.li`
   list-style: none;
   ${separator}
@@ -50,7 +49,6 @@ const ListItem = ({ name, jobId, customerName, jobDate, description }) => {
           </P>
         </Col>
       </Row>
-
     </LI>
   );
 };
