@@ -7,7 +7,7 @@ import separator from '../../components/css/separator';
 import H2 from '../../components/H2';
 import H3 from '../../components/H3';
 import P from '../../components/P';
-import Toast from '../../components/toast';
+import Toast, { Secondary as ToastBubble } from '../../components/toast';
 
 const StyledRow = styled(Row)`
   flex-direction: column;
@@ -50,9 +50,9 @@ const Dashboard = () => {
       <ListItem title={'Burst Kitchen Pipe'} priority='emergency' />
       <ListItem title={'Sink tap not running'}  priority='urgent' />
       <ListItem title={'Install sink fixtures'} />
-      <Toast>
+      <ToastBubble>
         Your job has now been reported as complete.
-      </Toast>
+      </ToastBubble>
     </Container> 
   )
 }
