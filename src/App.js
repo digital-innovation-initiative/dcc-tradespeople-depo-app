@@ -7,7 +7,7 @@ import Routes from './pages/routes';
 function App() {
   return (
     <div className="App">
-      <Routes header={<Menu pageTitle='Dashboard'/>} />
+      <Routes header={<Menu pageTitle='Dashboard' />} />
     </div>
   );
 }

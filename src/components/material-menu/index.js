@@ -2,12 +2,14 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import { Portal } from 'react-portal';
+import { Link, useLocation } from 'react-router-dom';
+
 import { ReactComponent as MenuIcon } from './menu.svg';
 import { ReactComponent as AvatarIcon } from './avatar.svg';
+
 import { version } from '../../../package.json';
 import separator from '../css/separator';
 import H4 from '../H4';
-import { Link } from 'react-router-dom';
 
 const MaxWidthContainer = styled(Container)`
   max-width: 100vw;
@@ -48,7 +50,12 @@ const MenuButton = styled.button`
 
 const StyledDrawer = styled.div`
   margin-top: 55px;
-  ${separator}
+  &:after {
+    content: "";
+    display: block;
+    margin: 0 -15px;
+    ${separator}
+  }
 `;
 
 const MenuRoot = styled(MaxWidthContainer)`
@@ -81,6 +88,7 @@ const MenuLink = styled(Link)`
   }
 `;
 
+
 const MenuDrawer = ({ display }) => {
   return (
     <Portal node={document && document.getElementById('menu-root')}>
@@ -110,21 +118,23 @@ const MenuDrawer = ({ display }) => {
         </StyledDrawer>
 
         <Row>
-            <Col>
-              <MenuLink>
-                Job Dashboard
-              </MenuLink>
-            </Col>
-          </Row>
+          <Col>
+            <MenuLink>
+              Job Dashboard
+            </MenuLink>
+          </Col>
+        </Row>
+
       </MenuRoot>  
     </Portal>
   )
 }
 
 const Menu = ({ pageTitle, display }) => {
+  const location = useLocation();
   return (
       <MenuContainer>
-        <MenuDrawer display={display} />
+        <MenuDrawer display={location.pathname === '/menu'} />
         <MenuButton>
           <Icon />
         </MenuButton>

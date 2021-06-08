@@ -10,6 +10,13 @@ import JobDetail from './job-detail';
 import JobHistory from './job-history';
 import { Container } from 'react-bootstrap';
 
+const MenuPageInfo = () => {
+  return (
+    <span>
+      page as menu HTML template
+    </span>
+  )
+}
 const Routes = ({ header }) => {
   return (
     <Router>
@@ -20,6 +27,7 @@ const Routes = ({ header }) => {
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/detail' component={JobDetail} />
           <Route path='/history' component={JobHistory} />
+          <Route path='/menu' component={MenuPageInfo} />
         </Container>
       </Switch>
     </Router>
