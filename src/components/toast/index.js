@@ -43,7 +43,7 @@ const ToastRow = ({ className, ...props }) => (
 
 export const Primary = ({ children, ...props }) => {
   return (
-    <ToastContainer {...props}>
+    <ToastContainer {...props} className='w-100'>
       <ToastRow >
         <CheckCircle />
         <Col xs={10} md={9}>

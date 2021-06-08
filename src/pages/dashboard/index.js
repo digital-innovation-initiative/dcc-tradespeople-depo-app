@@ -45,14 +45,14 @@ const Dashboard = () => {
   return (
     <Container>
       <Row className='mb-4'>
-        <H3></H3>
+        <H3>My Jobs</H3>
       </Row>
       <ListItem title={'Burst Kitchen Pipe'} priority='emergency' />
       <ListItem title={'Sink tap not running'}  priority='urgent' />
       <ListItem title={'Install sink fixtures'} />
-      <ToastBubble>
+      <Toast>
         Your job has now been reported as complete.
-      </ToastBubble>
+      </Toast>
     </Container> 
   )
 }
