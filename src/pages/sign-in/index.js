@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import DCCLogo from '../../dcc-logo.png';
 import { PasswordInput, InputWithValidity } from '../../components/input';
-import Button from '../../components/button';
+import Button, { LinkButton } from '../../components/button';
 import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import phone from 'phone';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
 
 const IRELAND_COUNTRY_CODE = 'IE';
@@ -14,6 +15,16 @@ const StyledRow = styled(Row)`
   margin-top: 36px;
 `;
 
+const StyledButton = styled(Button)`
+  display: block;
+  border-radius: 4px;
+  &:hover {
+    text-decoration: none;
+  }
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;
 
 
 const SignInPage = ({ loading }) => {
@@ -83,9 +94,11 @@ const SignInPage = ({ loading }) => {
 
       <StyledRow className='justify-content-center'>
         <Col xs={7} md={8}>
-          <Button disabled={!formData.password.isValid || !formData.phone.isValid}>
-            Sign in
-          </Button>  
+          <LinkButton disabled={!formData.password.isValid || !formData.phone.isValid} to='/dashboard'>
+            <div>
+              Sign in
+            </div>
+          </LinkButton>  
         </Col>
       </StyledRow>
     </form>
