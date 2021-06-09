@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import { Portal } from 'react-portal';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import useOutsideClick from '@rooks/use-outside-click';
 
 import { ReactComponent as MenuIcon } from './menu.svg';
 import { ReactComponent as AvatarIcon } from './avatar.svg';
@@ -100,10 +101,12 @@ const MENU_ANIMATIONS = {
   }
 };
 
-const MenuDrawer = ({ display }) => {
+const MenuDrawer = React.forwardRef(({ display, ...props }, ref) => {
   return (
     <Portal node={document && document.getElementById('menu-root')}>
       <MenuRoot className='px-3'
+        {...props}
+        ref={ref}
         as={motion.div}
         initial={MENU_ANIMATIONS.hidden}
         animate={display ? MENU_ANIMATIONS.visible : MENU_ANIMATIONS.hidden}
@@ -143,14 +146,28 @@ const MenuDrawer = ({ display }) => {
       </MenuRoot>  
     </Portal>
   )
-}
+});
 
 const Menu = ({ pageTitle }) => {
   const location = useLocation();
   const [isVisible, setVisibility ] = useState(false);
+  const parentRef = useRef();
+
+  useOutsideClick(
+    parentRef,
+    () => {
+      if (isVisible) {
+        return setVisibility(false);
+      }
+    },
+  );
+
   return (
       <MenuContainer>
-        <MenuDrawer display={isVisible || location.pathname === '/menu'} />
+        <MenuDrawer
+          ref={parentRef}
+          display={isVisible || location.pathname === '/menu'}
+          />
         <MenuButton onClick={() => setVisibility(!isVisible)}>
           <Icon />
         </MenuButton>
