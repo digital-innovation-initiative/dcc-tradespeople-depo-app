@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import { Portal } from 'react-portal';
 import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import { ReactComponent as MenuIcon } from './menu.svg';
 import { ReactComponent as AvatarIcon } from './avatar.svg';
-
 import { version } from '../../../package.json';
 import separator from '../css/separator';
 import H4 from '../H4';
@@ -68,7 +68,6 @@ const MenuRoot = styled(MaxWidthContainer)`
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.14),
     0px 6px 30px rgba(0, 0, 0, 0.12),
     0px 8px 10px rgba(0, 0, 0, 0.2);
-  display: ${props => props.display ? 'block' : 'none'};
 `;
 
 const VersionText = styled(H4)`
@@ -88,11 +87,27 @@ const MenuLink = styled(Link)`
   }
 `;
 
+const MENU_ANIMATIONS = {
+  visible: {
+    x: 0,
+    boxShadow: `0px 16px 24px rgba(0, 0, 0, 0.14),
+    0px 6px 30px rgba(0, 0, 0, 0.12),
+    0px 8px 10px rgba(0, 0, 0, 0.2)`,
+  },
+  hidden: {
+    x: '-100%',
+    boxShadow: 'none',
+  }
+};
 
 const MenuDrawer = ({ display }) => {
   return (
     <Portal node={document && document.getElementById('menu-root')}>
-      <MenuRoot className='px-3' display={display}>
+      <MenuRoot className='px-3'
+        as={motion.div}
+        initial={MENU_ANIMATIONS.hidden}
+        animate={display ? MENU_ANIMATIONS.visible : MENU_ANIMATIONS.hidden}
+        transition={{ duration: 0.35 }}>
         <StyledDrawer sm={3} className='no-gutters'>
           <Row className='align-items-center pb-4'>
             <Col className='flex-grow-0'>
@@ -130,12 +145,13 @@ const MenuDrawer = ({ display }) => {
   )
 }
 
-const Menu = ({ pageTitle, display }) => {
+const Menu = ({ pageTitle }) => {
   const location = useLocation();
+  const [isVisible, setVisibility ] = useState(false);
   return (
       <MenuContainer>
-        <MenuDrawer display={location.pathname === '/menu'} />
-        <MenuButton>
+        <MenuDrawer display={isVisible || location.pathname === '/menu'} />
+        <MenuButton onClick={() => setVisibility(!isVisible)}>
           <Icon />
         </MenuButton>
         <NavHeader>

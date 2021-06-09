@@ -44,7 +44,7 @@ const Routes = ({ header }) => {
           </Route>
 
           <Route path='/modal'>
-            <Modal></Modal>
+            <Modal />
           </Route>
         </Container>
       </Switch>
