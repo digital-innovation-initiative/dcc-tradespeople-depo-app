@@ -20,6 +20,9 @@ const Routes = ({ header }) => {
       <Switch>
         <Container>
           <Route exact path='/' component={SignInPage} />
+          <Route exact path='/loading'>
+            <SignInPage loading />
+          </Route>
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/detail' component={JobDetail} />
           <Route path='/history' component={JobHistory} />
