@@ -12,6 +12,7 @@ import { Container } from 'react-bootstrap';
 
 import { Primary as Toast, Secondary as ToastSecondary } from '../components/toast';
 import Modal from '../components/modal';
+import SignInLoading from './sign-in/loading';
 
 const Routes = ({ header }) => {
   return (
@@ -21,7 +22,7 @@ const Routes = ({ header }) => {
         <Container>
           <Route exact path='/' component={SignInPage} />
           <Route exact path='/loading'>
-            <SignInPage loading />
+            <SignInLoading percentage={80} />
           </Route>
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/detail' component={JobDetail} />

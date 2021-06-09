@@ -119,7 +119,7 @@ const MenuDrawer = ({ display }) => {
 
         <Row>
           <Col>
-            <MenuLink>
+            <MenuLink to='#'>
               Job Dashboard
             </MenuLink>
           </Col>
