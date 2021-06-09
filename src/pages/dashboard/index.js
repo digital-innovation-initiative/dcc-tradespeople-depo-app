@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 import StatusBadge from '../../components/status-badge';
 import Button from '../../components/button';
 import separator from '../../components/css/separator';
@@ -22,12 +24,13 @@ const HeaderRow = styled(Row)`
 `;
 
 
-const ListItem = ({ title, jobId, priority }) => {
+
+const ListItem = ({ title, jobId, priority, to }) => {
   return (
     <StyledRow xs={12} md={9}>
       <HeaderRow>
         <H2>{title}</H2>
-        <Button variant='link'>View</Button>
+        <Button variant='link' as={Link} to={to}>View</Button>
       </HeaderRow>
       <div className='d-flex my-1 justify-content-center'>
         <StatusBadge priority={priority} />
@@ -46,7 +49,7 @@ const Dashboard = () => {
       <Row className='mb-4'>
         <H3>My Jobs</H3>
       </Row>
-      <ListItem title={'Burst Kitchen Pipe'} priority='emergency' />
+      <ListItem title={'Burst Kitchen Pipe'} priority='emergency' to={'/detail'} />
       <ListItem title={'Sink tap not running'}  priority='urgent' />
       <ListItem title={'Install sink fixtures'} />
     </Container> 

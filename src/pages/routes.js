@@ -19,7 +19,7 @@ const Routes = ({ header }) => {
     <Router>
       {header}
       <Switch>
-        <Container>
+        <Container className='pb-3'>
           <Route exact path='/' component={SignInPage} />
           <Route path='/loading'>
             <SignInLoading percentage={80} />
