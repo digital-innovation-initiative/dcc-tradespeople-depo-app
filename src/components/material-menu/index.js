@@ -23,6 +23,7 @@ const MenuContainer = styled(MaxWidthContainer)`
   align-items: center;
   user-select: none;
   margin-bottom: 48px;
+  opacity: ${props => props.hide ? 0 : 1};
 `;
 
 const Icon = styled(MenuIcon)`
@@ -162,8 +163,10 @@ const Menu = ({ pageTitle }) => {
     },
   );
 
+  const isSignInPage = location.pathname === '/';
+  const isLoadingPage = location.pathname === '/loading';
   return (
-      <MenuContainer>
+      <MenuContainer hide={isSignInPage || isLoadingPage}>
         <MenuDrawer
           ref={parentRef}
           display={isVisible || location.pathname === '/menu'}

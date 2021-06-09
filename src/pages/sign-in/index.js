@@ -6,26 +6,12 @@ import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import phone from 'phone';
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
-
 
 const IRELAND_COUNTRY_CODE = 'IE';
 const MINIMUM_PASSWORD_CHARS = 5;
 const StyledRow = styled(Row)`
   margin-top: 36px;
 `;
-
-const StyledButton = styled(Button)`
-  display: block;
-  border-radius: 4px;
-  &:hover {
-    text-decoration: none;
-  }
-  justify-content: center;
-  align-items: center;
-  display: flex;
-`;
-
 
 const SignInPage = ({ loading }) => {
   const [ formData, setFormData ] = useState({
