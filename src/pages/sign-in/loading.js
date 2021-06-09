@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-
+import { useLocation, useHistory } from 'react-router-dom';
 import LoadingBar from '../../components/loading-bar';
 import DCCLogo from '../../dcc-logo.png';
 
@@ -13,15 +13,27 @@ const PageLoadingBar = ({ percentage, className }) => (
   </Row>
 );
 
-const SignInLoading = ({ percentage }) => (
-  <form>
-    <Row>
-      <Col className='justify-content-center'>
-        <img src={DCCLogo} alt="logo" />
-      </Col>
-    </Row>
-    <PageLoadingBar percentage={percentage} className='mt-4' />
-  </form>
-);
+const SignInLoading = ({ percentage }) => {
+  const location = useLocation();
+  const history = useHistory();
+  if (location && location.pathname.includes('timeout')) { // merely for demo purposes.
+    
+    setTimeout(
+      () => {
+        history.push('/dashboard');
+      }, 2000);
+
+  }
+  return (
+    <form>
+      <Row>
+        <Col className='justify-content-center'>
+          <img src={DCCLogo} alt="logo" />
+        </Col>
+      </Row>
+      <PageLoadingBar percentage={percentage} className='mt-4' />
+    </form>
+  );
+};
 
 export default SignInLoading;

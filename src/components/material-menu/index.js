@@ -164,7 +164,7 @@ const Menu = ({ pageTitle }) => {
   );
 
   const isSignInPage = location.pathname === '/';
-  const isLoadingPage = location.pathname === '/loading';
+  const isLoadingPage = location.pathname.includes('/loading');
   return (
       <MenuContainer hide={isSignInPage || isLoadingPage}>
         <MenuDrawer

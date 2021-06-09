@@ -80,7 +80,8 @@ const SignInPage = ({ loading }) => {
 
       <StyledRow className='justify-content-center'>
         <Col xs={7} md={8}>
-          <LinkButton disabled={!formData.password.isValid || !formData.phone.isValid} to='/dashboard'>
+          <LinkButton disabled={!formData.password.isValid || !formData.phone.isValid}
+          to={!window ? '/dashboard' : '/loading/timeout'}>
             <div>
               Sign in
             </div>

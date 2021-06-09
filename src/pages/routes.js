@@ -21,7 +21,7 @@ const Routes = ({ header }) => {
       <Switch>
         <Container>
           <Route exact path='/' component={SignInPage} />
-          <Route exact path='/loading'>
+          <Route path='/loading'>
             <SignInLoading percentage={80} />
           </Route>
           <Route path='/dashboard' component={Dashboard} />
