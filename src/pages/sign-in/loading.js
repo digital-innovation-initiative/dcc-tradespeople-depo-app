@@ -27,7 +27,7 @@ const SignInLoading = ({ percentage }) => {
   return (
     <form>
       <Row>
-        <Col className='justify-content-center'>
+        <Col className='justify-content-center d-flex'>
           <img src={DCCLogo} alt="logo" />
         </Col>
       </Row>

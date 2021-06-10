@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
 import H2 from '../../components/H2';
@@ -11,6 +11,7 @@ import { ReactComponent as LocationIcon } from '../../icons/location.svg';
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
 import Button from '../../components/button';
 import A from '../../components/A';
+import MinimalModal from '../../components/modal';
 
 import { RowWithSeparator, SpacedRow, TitleRow, JobDescriptionRow } from './layout';
 import Detail from './detail';
@@ -40,6 +41,7 @@ const IconA = ({ icon, children }) => {
 }
 
 const DetailPage = (props) => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <Container>
       
@@ -114,8 +116,9 @@ const DetailPage = (props) => {
         <RepairHistoryButton to='/history' />
       </RowWithSeparator>
       <Row>
-        <Button>Report Complete</Button>
+        <Button onClick={() => setShowModal(true)}>Report Complete</Button>
       </Row>
+      {showModal && <MinimalModal />}
     </Container>
   );
 }
