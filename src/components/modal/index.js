@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import React from 'react';
 import { Portal } from 'react-portal';
 import { Col, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 import H1 from '../H1';
 import P from '../P';
@@ -13,7 +12,7 @@ const ModalParent = styled(Row)`
   margin: 0;
 `;
 
-const Header = ({ children }) => (
+export const Header = ({ children }) => (
   <Row>
     <Col>
       <H1>{children}</H1>
@@ -21,7 +20,7 @@ const Header = ({ children }) => (
   </Row>
 );
 
-const Body = ({ children }) => (
+export const Body = ({ children }) => (
   <Row>
     <Col>
       <P noSpacing>
@@ -31,7 +30,7 @@ const Body = ({ children }) => (
   </Row>
 );
 
-const Footer = ({ children }) => (
+export const Footer = ({ children }) => (
   <Row className='justify-content-end'>
     {children}
   </Row>

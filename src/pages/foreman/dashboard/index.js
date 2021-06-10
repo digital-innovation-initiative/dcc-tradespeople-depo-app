@@ -3,6 +3,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import H2 from '../../../components/H2';
+import H1 from '../../../components/H1';
 import P from '../../../components/P';
 import StatusBadge from '../../../components/status-badge';
 
@@ -31,10 +32,12 @@ const StyledLI = styled.li`
   }
 `;
 
+// const BadgeCol = styled(Col)``
+
 const JobItem = ({ priority, title, description }) => {
   return (
     <Row as={StyledLI}>
-      <Col className='flex-grow-0'>
+      <Col md={2}>
         <StatusBadge priority={priority} />
       </Col>
       <Col xs={5} md={7} lg={8}>
@@ -43,7 +46,8 @@ const JobItem = ({ priority, title, description }) => {
           {description}
         </P>
       </Col>
-      <Col md={3} lg={2} className='d-flex justify-content-center align-items-center'>
+      <Col xs={4} md={3} lg={2}
+        className='d-flex justify-content-center align-items-center'>
         <Col className='d-flex justify-content-center'>
           <ExpandIcon />
         </Col>
@@ -88,11 +92,15 @@ const DUMMY_JOB_DATA = [
   }
 ]
 
+
 const ForemanDashboard = (props) => {
   return (
-    <Container as={StyledUL}>
-      {DUMMY_JOB_DATA.map(j => <JobItem {...j} />)}
-    </Container>
+    <>
+      <H1 lg bold className='mb-5 mt-3'>Pending Jobs Board</H1>
+      <Container as={StyledUL}>
+        {DUMMY_JOB_DATA.map(j => <JobItem {...j} />)}
+      </Container>
+    </>
   )
 }
 

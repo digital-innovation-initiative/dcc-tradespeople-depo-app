@@ -6,6 +6,7 @@ const StatusBadge = styled(Badge)`
   font-weight: 600;
   border: 1px solid;
   height: 24px;
+  width: 100%;
   ${props => {
     switch (props.variant) {
       case 'primary': //routine
