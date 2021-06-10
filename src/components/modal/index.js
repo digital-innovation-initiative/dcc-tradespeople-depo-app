@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import React from 'react';
 import { Portal } from 'react-portal';
 import { Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 import H1 from '../H1';
 import P from '../P';
-import A from '../A';
+import A, { LinkA } from '../A';
 
 const ModalParent = styled(Row)`
   justify-content: center;
@@ -36,8 +38,8 @@ const Footer = ({ children }) => (
 );
 
 const Background = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: absolute;
   left: 0;
   top: 0;
@@ -86,9 +88,9 @@ const MinimalModal = (props) => {
             </A>
           </div>
           <div className='col-auto'>
-            <A>
+            <LinkA to='/dashboard?toast=true'>
               Confirm
-            </A>
+            </LinkA>
           </div>
         </Footer>
       </Root>

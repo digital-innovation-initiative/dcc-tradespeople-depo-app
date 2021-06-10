@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export default styled.a`
+const CSS = css`
   color: #059DF2;
   font-family: 'Open Sans';
   font-size: 16px;
@@ -10,4 +11,12 @@ export default styled.a`
   &:hover {
     color: #059DF2;
   }
+`;
+
+export const LinkA = styled(Link)`
+  ${CSS}
+`;
+
+export default styled.a`
+  ${CSS}
 `;
