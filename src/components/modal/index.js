@@ -5,7 +5,6 @@ import { Col, Row } from 'react-bootstrap';
 
 import H1 from '../H1';
 import P from '../P';
-import A, { LinkA } from '../A';
 
 const ModalParent = styled(Row)`
   justify-content: center;
@@ -69,32 +68,21 @@ const Root = ({ children, ...props }) => (
   </Background>
 );
 
-const MinimalModal = (props) => {
+const Dialog = ({ children }) => {
   return (
     <Portal node={document && document.getElementById('modal-root')}>
       <Root>
-        <Header>
-          Confirm Completion
-        </Header>
-        <Body>
-          Once you report a job as finished the job will be closed.
-          Please finish any relevant checks before you mark the job as complete.
-        </Body>
-        <Footer>
-          <div className='col-auto'>
-            <A>
-              Cancel
-            </A>
-          </div>
-          <div className='col-auto'>
-            <LinkA to='/dashboard?toast=true'>
-              Confirm
-            </LinkA>
-          </div>
-        </Footer>
+        {children}
       </Root>
     </Portal>
   );
 }
+
+const MinimalModal = {
+  Dialog,
+  Header,
+  Body,
+  Footer,
+};
 
 export default MinimalModal;

@@ -32,13 +32,11 @@ const StyledLI = styled.li`
   }
 `;
 
-// const BadgeCol = styled(Col)``
-
 const JobItem = ({ priority, title, description }) => {
   return (
     <Row as={StyledLI}>
       <Col md={2}>
-        <StatusBadge priority={priority} />
+        <StatusBadge className='w-100' priority={priority} />
       </Col>
       <Col xs={5} md={7} lg={8}>
         <H2>{title}</H2>
