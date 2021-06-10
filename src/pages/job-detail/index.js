@@ -116,7 +116,10 @@ const DetailPage = (props) => {
         <RepairHistoryButton to='/history' />
       </RowWithSeparator>
       <Row>
-        <Button onClick={() => setShowModal(true)}>Report Complete</Button>
+        <Button
+          onClick={() => setShowModal(true)}>
+            Report Complete
+        </Button>
       </Row>
       {showModal && <MinimalModal />}
     </Container>

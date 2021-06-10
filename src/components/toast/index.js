@@ -15,7 +15,7 @@ const StyledP = styled(P)`
 `;
 
 const ToastContainer = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
   background-color: #fff;

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
+import { Secondary as ToastMessage } from '../../components/toast';
 import StatusBadge from '../../components/status-badge';
 import Button from '../../components/button';
 import separator from '../../components/css/separator';
@@ -43,16 +44,35 @@ const ListItem = ({ title, jobId, priority, to }) => {
   );
 }
 
+const shouldShowToast = (search) => { //show toast for demo purposes
+  const query = new URLSearchParams(search);
+  const hasToast = query.get('toast');
+  console.log(query, hasToast)
+  if (hasToast) {
+    return true;
+  }
+  return false;
+}
+
 const Dashboard = () => {
+  const { search } = useLocation();
+  const showToast = shouldShowToast(search);
+
   return (
-    <Container>
-      <Row className='mb-4'>
-        <H3>My Jobs</H3>
-      </Row>
-      <ListItem title={'Burst Kitchen Pipe'} priority='emergency' to={'/detail'} />
-      <ListItem title={'Sink tap not running'}  priority='urgent' />
-      <ListItem title={'Install sink fixtures'} />
-    </Container> 
+    <>
+      <Container>
+        <Row className='mb-4'>
+          <H3>My Jobs</H3>
+        </Row>
+        <ListItem title={'Burst Kitchen Pipe'} priority='emergency' to={'/detail'} />
+        <ListItem title={'Sink tap not running'}  priority='urgent' />
+        <ListItem title={'Install sink fixtures'} />
+      </Container>
+      {showToast && <ToastMessage>
+
+Your job has now been reported as complete.
+</ToastMessage>}
+    </>
   )
 }
 
