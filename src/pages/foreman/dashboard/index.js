@@ -94,7 +94,9 @@ const DUMMY_JOB_DATA = [
 const ForemanDashboard = (props) => {
   return (
     <>
-      <H1 lg bold className='mb-5 mt-3'>Pending Jobs Board</H1>
+      <H1 lg bold className='mb-5 mt-3'>
+        Pending Jobs Board
+      </H1>
       <Container as={StyledUL}>
         {DUMMY_JOB_DATA.map(j => <JobItem {...j} />)}
       </Container>
