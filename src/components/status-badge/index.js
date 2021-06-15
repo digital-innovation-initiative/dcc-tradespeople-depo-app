@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import Badge from 'react-bootstrap/Badge';
+import _ from 'lodash';
 
 const StatusBadge = styled(Badge)`
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   border: 1px solid;
   height: 24px;
@@ -31,28 +32,20 @@ const StatusBadge = styled(Badge)`
   }}
 `;
 
-const JobStatus = ({ priority, ...props }) => {
-  switch (priority) {
-    case 'urgent':
-      return (
-        <StatusBadge variant='warning' { ...props}>
-          Urgent
-        </StatusBadge>
-      );
-    case 'emergency':
-      return (
-        <StatusBadge variant='danger' { ...props}>
-          Emergency
-        </StatusBadge>
-      );
-    case 'routine': //routine
-      default: 
-        return (
-          <StatusBadge { ...props}>
-            Routine
-          </StatusBadge>
-        );
-  }
+const PRIORITIES = {
+  urgent: 'warning',
+  emergency: 'danger',
+  routine: 'primary',
+};
+
+const JobStatus = ({ priority = 'routine', ...props }) => {
+  const variant = PRIORITIES[priority];
+  const name = _.capitalize(variant);
+  return (
+    <StatusBadge variant={variant} {...props}>
+      {name}
+    </StatusBadge>
+  );
 }
 
 export default JobStatus;

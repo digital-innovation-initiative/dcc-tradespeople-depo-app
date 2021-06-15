@@ -29,11 +29,11 @@ const HeaderRow = styled(Row)`
 const ListItem = ({ title, jobId, priority, to }) => {
   return (
     <StyledRow xs={12} md={9}>
-      <HeaderRow>
+      <HeaderRow className=''>
         <H2>{title}</H2>
         <Button variant='link' as={Link} to={to}>View</Button>
       </HeaderRow>
-      <div className='d-flex my-1 justify-content-center'>
+      <div className='d-flex my-3 justify-content-center'>
         <StatusBadge priority={priority} />
       </div>
       <P>

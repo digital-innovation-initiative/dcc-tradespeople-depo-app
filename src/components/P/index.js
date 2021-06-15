@@ -12,4 +12,5 @@ export default styled.p`
       margin-bottom: 40px;
     `}
   display: block;
+  font-size: 16px;
 `;

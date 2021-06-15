@@ -17,7 +17,6 @@ border: 0.5px solid #CED4DA;
 const StyledLI = styled.li`
   justify-content: center;
   align-items: center;
-  ${'' /* border: 0.5px solid #CED4DA; */}
   justify-content: space-between;
   padding: 20px 0;
   &:not(:first-child):before {

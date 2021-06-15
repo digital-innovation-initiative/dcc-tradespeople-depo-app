@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DCCLogo from '../../dcc-logo.png';
 import { PasswordInput, InputWithValidity } from '../../components/input';
-import Button, { LinkButton } from '../../components/button';
+import { LinkButton } from '../../components/button';
 import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import phone from 'phone';
@@ -65,7 +65,7 @@ const SignInPage = ({ loading }) => {
       <Row className='justify-content-center'>
         <Col xs={11} md={8}>
           <InputWithValidity
-            placeholder='DCC Mobile Number'
+            placeholder='Employee No'
             onChange={checkPhoneValidity}
             valid={formData.phone.isValid}
             value={formData.phone.value} />
@@ -79,7 +79,7 @@ const SignInPage = ({ loading }) => {
       </Row>
 
       <StyledRow className='justify-content-center'>
-        <Col xs={7} md={8}>
+        <Col xs={7} md={4}>
           <LinkButton disabled={!formData.password.isValid || !formData.phone.isValid}
           to={!window ? '/dashboard' : '/loading/timeout'}>
             <div>
