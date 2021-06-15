@@ -22,7 +22,7 @@ function addCSSPrefixes (done) {
   src(styleSrc)
     .pipe(
       autoprefixer({
-        browsers: [ 'last 2 versions', '> 5%'] ,
+        overrideBrowserslist: [ 'last 2 versions', '> 5%'] ,
       })
     )
     .pipe(dest(styleDist))
