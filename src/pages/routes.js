@@ -13,6 +13,7 @@ import { Container } from 'react-bootstrap';
 import { Primary as Toast, Secondary as ToastSecondary } from '../components/toast';
 import Modal from '../components/modal';
 import SignInLoading from './sign-in/loading';
+import ForemanDashboard from './foreman/dashboard';
 
 const Routes = ({ header }) => {
   return (
@@ -39,12 +40,16 @@ const Routes = ({ header }) => {
 
           <Route path='/toast/secondary'>
             <ToastSecondary>
-            Your job has now been reported as complete.
+              Your job has now been reported as complete.
             </ToastSecondary>
           </Route>
 
           <Route path='/modal'>
             <Modal />
+          </Route>
+
+          <Route path='/foreman/dashboard'>
+            <ForemanDashboard />
           </Route>
         </Container>
       </Switch>

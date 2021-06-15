@@ -21,7 +21,7 @@ const ToastContainer = styled.div`
   background-color: #fff;
   left: 0;
   bottom: 0;
-  height: 110px;
+  min-height: 80px;
   display: flex;
   justify-content: center;
 `;
@@ -37,8 +37,11 @@ const CheckCircle = () => {
 const ToastRow = ({ className, ...props }) => (
   <Row
     {...props}
-    className={classNames('align-content-center align-items-center mx-0 p-3', className)}
-    />
+    className={
+      classNames('align-content-center align-items-center mx-0 px-3 justify-content-around',
+      className,
+    )}
+  />
 );
 
 export const Primary = ({ children, ...props }) => {
