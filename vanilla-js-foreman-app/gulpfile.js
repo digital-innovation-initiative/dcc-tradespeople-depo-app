@@ -2,7 +2,6 @@ const path = require('path');
 const { src, dest, task, parallel, watch, series } = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const plumber = require('gulp-plumber');
-const { reload } = require('browser-sync');
 
 const browserSync  = require('browser-sync').create();
 
@@ -22,7 +21,7 @@ function addCSSPrefixes (done) {
   src(styleSrc)
     .pipe(
       autoprefixer({
-        overrideBrowserslist: [ 'last 2 versions', '> 5%'] ,
+        overrideBrowserslist: [ 'last 2 versions', '> 5%'],
       })
     )
     .pipe(dest(styleDist))
