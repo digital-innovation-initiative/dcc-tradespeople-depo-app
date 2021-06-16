@@ -65,7 +65,7 @@ const SignInPage = ({ loading }) => {
       <Row className='justify-content-center'>
         <Col xs={11} md={8}>
           <InputWithValidity
-            placeholder='Employee No'
+            placeholder='Employee Number'
             onChange={checkPhoneValidity}
             valid={formData.phone.isValid}
             value={formData.phone.value} />
