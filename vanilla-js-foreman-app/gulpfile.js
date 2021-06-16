@@ -5,7 +5,9 @@ const plumber = require('gulp-plumber');
 
 const browserSync  = require('browser-sync').create();
 
-const STYLE_PATH = 'assets/css/index.css';
+const ASSETS_ROOT = 'assets';
+
+const STYLE_PATH = path.join(ASSETS_ROOT, 'css');
 
 const SRC_ROOT = './src';
 const DIST_ROOT = './dist';
@@ -15,9 +17,21 @@ const ASSET_PATH_GLOB = {
   CSS: path.join(SRC_ROOT, '/**/*.css'),
 };
 
+
+function copyVendorStyles (done) {
+  const bootstrapPath = './node_modules/bootstrap/dist/css/bootstrap.min.css';
+  src(bootstrapPath)
+    .pipe(plumber())
+    .pipe(
+      dest(path.join(DIST_ROOT, STYLE_PATH)),
+    )
+  done();
+}
+
 function addCSSPrefixes (done) {
-  const styleSrc = path.join(SRC_ROOT, STYLE_PATH);
-  const styleDist = path.join(DIST_ROOT, STYLE_PATH);
+  const styleSrc = path.join(SRC_ROOT, STYLE_PATH, 'index.css');
+  const styleDist = path.join('.', DIST_ROOT, STYLE_PATH);
+  console.log({ styleDist })
   src(styleSrc)
     .pipe(
       autoprefixer({
@@ -56,7 +70,7 @@ function watchFiles () {
 
   watch(
     ASSET_PATH_GLOB.CSS,
-    series(addCSSPrefixes, reloadBrowser),
+    series(copyVendorStyles, addCSSPrefixes, reloadBrowser),
   );
 }
 
@@ -71,9 +85,15 @@ task(
 );
 
 task(
+  'copy-vendor-styles',
+  copyVendorStyles
+)
+
+task(
   'default',
   parallel(
     'copy-html',
+    'copy-vendor-styles',
     'prefix-css',
   )
 );
