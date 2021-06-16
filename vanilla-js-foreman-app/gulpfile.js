@@ -13,8 +13,8 @@ const DIST_ROOT = './dist';
 const ASSET_PATH_GLOB = {
   HTML: path.join(SRC_ROOT, '/**/*.html'),
   CSS: path.join(SRC_ROOT, '/**/*.css'),
+  IMAGES: path.join(SRC_ROOT, '/assets/images/*.*(svg|png)'),
 };
-
 
 function copyVendorStyles (done) {
   const bootstrapPath = './node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -26,13 +26,22 @@ function copyVendorStyles (done) {
   done();
 }
 
+function copyImages (done) {
+  src(ASSET_PATH_GLOB.IMAGES)
+    .pipe(plumber())
+    .pipe(
+      dest(path.join(DIST_ROOT, '/assets/images'))
+    )
+  done();
+}
+
 function addCSSPrefixes (done) {
   const styleSrc = path.join(SRC_ROOT, STYLE_PATH, 'index.css');
   const styleDist = path.join('.', DIST_ROOT, STYLE_PATH);
   src(styleSrc)
     .pipe(
       autoprefixer({
-        overrideBrowserslist: [ 'last 2 versions', '> 5%'],
+        overrideBrowserslist: ['last 2 versions', '> 5%'],
       })
     )
     .pipe(dest(styleDist))
@@ -69,6 +78,11 @@ function watchFiles () {
     ASSET_PATH_GLOB.CSS,
     series(copyVendorStyles, addCSSPrefixes, reloadBrowser),
   );
+
+  watch(
+    ASSET_PATH_GLOB.IMAGES,
+    copyImages
+  );
 }
 
 task(
@@ -84,12 +98,18 @@ task(
 task(
   'copy-vendor-styles',
   copyVendorStyles
-)
+);
+
+task(
+  'copy-images',
+  copyImages,
+);
 
 task(
   'default',
   parallel(
     'copy-html',
+    'copy-images',
     'copy-vendor-styles',
     'prefix-css',
   )
