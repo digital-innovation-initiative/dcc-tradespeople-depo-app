@@ -33,18 +33,18 @@ p.noSpacing {
   margin-bottom: 0;
 }
 
-.tradesman-dashboard .ul.container {
+ul.tradesman-dashboard.container {
   border: 0.5px solid #CED4DA;
 }
 
-.tradesman-dashboard .ul.container li {
+ul.tradesman-dashboard.container li {
   justify-content: center;
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
 }
 
-.tradesman-dashboard .ul.container li:not(:first-child):before {
+ul.tradesman-dashboard.container li:not(:first-child):before {
   content: '';
   height: 1px;
   width: 100%;
