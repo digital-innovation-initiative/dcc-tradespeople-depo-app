@@ -5,9 +5,7 @@ const plumber = require('gulp-plumber');
 
 const browserSync  = require('browser-sync').create();
 
-const ASSETS_ROOT = 'assets';
-
-const STYLE_PATH = path.join(ASSETS_ROOT, 'css');
+const STYLE_PATH = path.join('assets', 'css');
 
 const SRC_ROOT = './src';
 const DIST_ROOT = './dist';
@@ -31,7 +29,6 @@ function copyVendorStyles (done) {
 function addCSSPrefixes (done) {
   const styleSrc = path.join(SRC_ROOT, STYLE_PATH, 'index.css');
   const styleDist = path.join('.', DIST_ROOT, STYLE_PATH);
-  console.log({ styleDist })
   src(styleSrc)
     .pipe(
       autoprefixer({
