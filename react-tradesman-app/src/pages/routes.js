@@ -10,8 +10,7 @@ import JobDetail from './job-detail';
 import JobHistory from './job-history';
 import { Container } from 'react-bootstrap';
 
-import { Primary as Toast, Secondary as ToastSecondary } from '../components/toast';
-import Modal from '../components/modal';
+import { Secondary as ToastSecondary } from '../components/toast';
 import SignInLoading from './sign-in/loading';
 import ForemanDashboard from './foreman/dashboard';
 import ConfirmModal from './job-detail/confirm-modal';
@@ -34,13 +33,7 @@ const Routes = ({ header }) => {
           {/* component pages below */}
           <Route path='/menu' /> {/* menu displays on this page from logic within menu component */}
 
-          <Route path='/toast/primary'>
-            <Toast>
-              Your job has now been reported as complete.
-            </Toast>
-          </Route>
-
-          <Route path='/toast/secondary'>
+          <Route path='/toast'>
             <ToastSecondary>
               Your job has now been reported as complete.
             </ToastSecondary>
