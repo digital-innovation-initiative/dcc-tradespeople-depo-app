@@ -50,9 +50,11 @@
     "babel-plugin-styled-components": "^1.12.0",
     "customize-cra": "^1.0.0",
     "glob": "^7.1.7",
+    "js-beautify": "^1.14.0",
     "live-server": "^1.2.1",
     "node-html-parser": "^3.3.5",
-    "react-app-rewired": "^2.1.8"
+    "react-app-rewired": "^2.1.8",
+    "rimraf": "^3.0.2"
   },
   "reactSnap": {
     "include": [
