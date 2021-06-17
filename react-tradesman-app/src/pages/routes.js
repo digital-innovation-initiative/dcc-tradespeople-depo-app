@@ -47,7 +47,9 @@ const Routes = ({ header }) => {
           </Route>
 
           <Route path='/modal'>
-            <ConfirmModal />
+            <Container>
+              <ConfirmModal />
+            </Container>  
           </Route>
 
           <Route path='/foreman/dashboard'>
