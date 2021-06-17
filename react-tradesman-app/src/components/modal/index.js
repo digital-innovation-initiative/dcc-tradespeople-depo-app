@@ -5,6 +5,7 @@ import { Col, Row } from 'react-bootstrap';
 
 import H1 from '../H1';
 import P from '../P';
+import { hydrate } from 'react-dom';
 
 const ModalParent = styled(Row)`
   justify-content: center;
@@ -42,6 +43,7 @@ const Background = styled.div`
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.7);
+  min-height: 100vh;
 `;
 
 const ContentRoot = styled(Col)`
@@ -69,12 +71,22 @@ const Root = ({ children, ...props }) => (
 );
 
 const Dialog = ({ children }) => {
-  return (
-    <Portal node={document && document.getElementById('modal-root')}>
+  const domNode = document && document.getElementById('modal-root');
+  const DialogRoot = () => (
+    <Portal node={domNode}>
       <Root>
         {children}
       </Root>
     </Portal>
+  );
+
+  if (domNode && domNode.hasChildNodes()) {
+    hydrate(<DialogRoot />);
+    return <></>
+  }
+
+  return (
+    <DialogRoot />
   );
 }
 

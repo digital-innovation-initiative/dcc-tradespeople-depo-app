@@ -10,8 +10,8 @@ import { ReactComponent as CareIcon } from '../../icons/care.svg';
 import { ReactComponent as LocationIcon } from '../../icons/location.svg';
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
 import Button from '../../components/button';
-import A, { LinkA } from '../../components/A';
-import MinimalModal from '../../components/modal';
+import A from '../../components/A';
+import ConfirmModal from './confirm-modal';
 
 import { RowWithSeparator, SpacedRow, TitleRow, JobDescriptionRow } from './layout';
 import Detail from './detail';
@@ -39,28 +39,6 @@ const IconA = ({ icon, children }) => {
     </A>
   );
 }
-
-const ConfirmModal = (props) => (
-  <MinimalModal.Dialog>
-    <MinimalModal.Header>
-      Confirm Completion
-    </MinimalModal.Header>
-    <MinimalModal.Body>
-      Once you report a job as finished the job will be closed.
-      Please finish any relevant checks before you mark the job as complete.
-    </MinimalModal.Body>
-      <MinimalModal.Footer>
-        <div className='col-auto'>
-          <A>Cancel</A>
-        </div>
-        <div className='col-auto'>
-          <LinkA to='/dashboard?toast=true'>
-            Confirm
-          </LinkA>
-        </div>
-      </MinimalModal.Footer>
-  </MinimalModal.Dialog>
-)
 
 const DetailPage = (props) => {
   const [showModal, setShowModal] = useState(false);

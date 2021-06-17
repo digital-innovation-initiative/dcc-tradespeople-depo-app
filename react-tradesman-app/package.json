@@ -26,7 +26,7 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "postbuild": "react-snap"
+    "postbuild": "react-snap && node ./create-imgs-build.js"
   },
   "eslintConfig": {
     "extends": [
@@ -49,7 +49,23 @@
   "devDependencies": {
     "babel-plugin-styled-components": "^1.12.0",
     "customize-cra": "^1.0.0",
+    "glob": "^7.1.7",
+    "js-beautify": "^1.14.0",
     "live-server": "^1.2.1",
-    "react-app-rewired": "^2.1.8"
+    "node-html-parser": "^3.3.5",
+    "react-app-rewired": "^2.1.8",
+    "rimraf": "^3.0.2"
+  },
+  "reactSnap": {
+    "include": [
+      "/",
+      "/loading",
+      "/dashboard",
+      "/detail",
+      "/history",
+      "/menu",
+      "/toast",
+      "/modal"
+    ]
   }
 }
