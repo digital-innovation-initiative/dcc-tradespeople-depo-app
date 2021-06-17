@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+
+h1 {
+  font-family: 'Open Sans';
+  color: #000000;
+  margin: 0;
+  padding: .375rem 0;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+h1.bold {
+  font-weight: 700;
+}
+
+h1.lg {
+  font-size: 40px;
+}
+
+p {  
+  font-weight: 400;
+  color: #212121;
+  font-family: 'Open Sans';
+  text-align: left;
+  display: block;
+  font-size: 16px;
+  padding-right: 30px;
+  margin-bottom: 40px;
+}
+
+p.noSpacing {
+  padding-right: 0;
+  margin-bottom: 0;
+}
+
+ul.tradesman-dashboard.container {
+  border: 0.5px solid #CED4DA;
+}
+
+ul.tradesman-dashboard.container li {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 0;
+}
+
+ul.tradesman-dashboard.container li:not(:first-child):before {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background-color: #CED4DA;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  display: inline;
+  position: relative;
+  bottom: 20px;
+}
+
+.badge {
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid;
+  height: 24px;
+}
+
+.badge.badge-danger {
+  color: #DE0000;
+  border-color: #DE0000;
+  background-color: #FFF6F6;
+}
+
+.badge.badge-warning {
+  color: #FF7A00;
+  border-color: #FF7A00;
+  background-color: #FFFBF6;
+}
+
+.badge.badge-primary {
+  color: #1693C3;
+  border-color: #1693C3;
+  background-color: #E7F4F9;
+}
+
+.svg-icon {
+  background-repeat: no-repeat;
+}
+.svg-icon.expand {
+  background-image: url('../images/expand.svg');
+  min-height: 27px;
+  min-width: 28px;
+}
+
+.svg-icon.person-plus {
+  background-image: url('../images/person-plus.svg');
+  min-height: 39px;
+  min-width: 39px;
+}
