@@ -47,7 +47,6 @@ const ListItem = ({ title, jobId, priority, to }) => {
 const shouldShowToast = (search) => { //show toast for demo purposes
   const query = new URLSearchParams(search);
   const hasToast = query.get('toast');
-  console.log(query, hasToast)
   if (hasToast) {
     return true;
   }

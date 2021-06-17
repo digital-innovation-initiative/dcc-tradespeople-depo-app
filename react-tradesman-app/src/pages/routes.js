@@ -14,6 +14,8 @@ import { Primary as Toast, Secondary as ToastSecondary } from '../components/toa
 import Modal from '../components/modal';
 import SignInLoading from './sign-in/loading';
 import ForemanDashboard from './foreman/dashboard';
+import ConfirmModal from './job-detail/confirm-modal';
+
 
 const Routes = ({ header }) => {
   return (
@@ -45,7 +47,7 @@ const Routes = ({ header }) => {
           </Route>
 
           <Route path='/modal'>
-            <Modal />
+            <ConfirmModal />
           </Route>
 
           <Route path='/foreman/dashboard'>

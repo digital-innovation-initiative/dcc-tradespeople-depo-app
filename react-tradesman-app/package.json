@@ -51,5 +51,16 @@
     "customize-cra": "^1.0.0",
     "live-server": "^1.2.1",
     "react-app-rewired": "^2.1.8"
+  },
+  "reactSnap": {
+    "include": [
+      "/dashboard",
+      "/detail",
+      "/history",
+      "/menu",
+      "/toast/primary",
+      "/toast/secondary",
+      "/modal"
+    ]
   }
 }
