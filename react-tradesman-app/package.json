@@ -54,13 +54,15 @@
   },
   "reactSnap": {
     "include": [
+      "/",
+      "/loading",
       "/dashboard",
       "/detail",
       "/history",
       "/menu",
       "/toast/primary",
       "/toast/secondary",
-      "/modal"
+      "/modal"      
     ]
   }
 }
