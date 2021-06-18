@@ -19,25 +19,37 @@
 <body>
   <div class="pb-3 container">
     <h1 class="lg bold mb-5 mt-3">Pending Jobs Board</h1>
-    <ul class="tradesman-dashboard container">
-      <li class="row">
+    <ul class="tradesman-dashboard container custom-accordion">
+      
+      
+      <li class="row custom-accordion__item">
         <div class="col-md-2"><span class="w-100 badge badge-danger">Danger</span></div>
-        <div class="col-lg-8 col-md-7 col-5">
+
+        <label class="col-lg-8 col-md-7 col-5 custom-accordion__item__label" for="checkbox-1">
           <h2>Burst Kitchen Pipe</h2>
-          <p class="m-0">
-            Pipe under the kitchen sink has burst with water flooding the
-            interior.
-          </p>
-        </div>
+            <p class="m-0">
+              Pipe under the kitchen sink has burst with water flooding the
+              interior.
+            </p>
+        </label>
+
+
         <div class="d-flex justify-content-center align-items-center col-lg-2 col-md-3 col-4">
-          <div class="d-flex justify-content-center col">
+          <label class="d-flex justify-content-center col pointer" for="checkbox-1">
             <div class="svg-icon expand"></div>
-          </div>
+          </label>
           <div class="d-flex col">
             <div class="svg-icon person-plus"></div>
           </div>
         </div>
+        <input type="checkbox" id="checkbox-1" />
+        <div class="custom-accordion__item__content col">
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. A, in!
+        </div>
       </li>
+
+
+
       <li class="row">
         <div class="col-md-2"><span class="w-100 badge badge-danger">Danger</span></div>
         <div class="col-lg-8 col-md-7 col-5">
