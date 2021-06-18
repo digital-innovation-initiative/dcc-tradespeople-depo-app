@@ -9,9 +9,7 @@ h1 {
   font-size: 18px;
 }
 
-h1.bold {
-  font-weight: 700;
-}
+
 
 h1.lg {
   font-size: 40px;
@@ -33,24 +31,16 @@ p.noSpacing {
   margin-bottom: 0;
 }
 
-ul.tradesman-dashboard.container {
-  border: 0.5px solid #CED4DA;
+
+.grey-box {
+  border: 1px solid #CED4DA;
 }
 
-ul.tradesman-dashboard.container li {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 20px 0;
+.grey-box--remove-top {
+  border-top: none;
 }
 
-ul.tradesman-dashboard.container li:not(:first-child):before {
+.grey-box > .grey-box-item:not(:first-child):before {
   content: '';
   height: 1px;
   width: 100%;
@@ -100,4 +90,58 @@ ul.tradesman-dashboard.container li:not(:first-child):before {
   background-image: url('../images/person-plus.svg');
   min-height: 39px;
   min-width: 39px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+ul.tradesman-dashboard.container li {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 0;
+}
+
+.custom-accordion {
+  overflow: hidden;
+}
+.custom-accordion__item {
+  overflow: hidden;
+}
+.custom-accordion .custom-accordion__item input[type="checkbox"] {
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+}
+
+/* .custom-accordion .custom-accordion__item label.custom-accordion__item__label {} */
+
+.custom-accordion__item__content {
+  max-height: 0;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+  padding: 0;
+  overflow: hidden;
+}
+.custom-accordion .custom-accordion__item input[type="checkbox"]:checked ~ .custom-accordion__item__content {
+  max-height: 100vh;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  overflow: visible;
+}
+
+/* utilities */
+.bold {
+  font-weight: 700;
+}
+
+.alt-text {
+  color: #808080;
 }
