@@ -10,7 +10,6 @@ h1 {
 }
 
 
-
 h1.lg {
   font-size: 40px;
 }
@@ -31,6 +30,9 @@ p.noSpacing {
   margin-bottom: 0;
 }
 
+.container.job-container {
+  margin-top: 4.7rem;
+}
 
 .grey-box {
   border: 1px solid #CED4DA;
@@ -91,6 +93,12 @@ p.noSpacing {
   min-width: 39px;
 }
 
+.dcc-logo {
+  background-repeat: no-repeat;
+  min-height: 81px;
+  min-width: 320px;
+}
+
 .pointer {
   cursor: pointer;
 }
@@ -129,6 +137,10 @@ ul.tradesman-dashboard.container li {
   overflow: visible;
 }
 
+.navbar.dcc-nav {
+  background-color: #1693C3;
+}
+
 /* utilities */
 .bold {
   font-weight: 700;
@@ -136,4 +148,8 @@ ul.tradesman-dashboard.container li {
 
 .alt-text {
   color: #808080;
+}
+
+.w-80 {
+  width: 80%;
 }
