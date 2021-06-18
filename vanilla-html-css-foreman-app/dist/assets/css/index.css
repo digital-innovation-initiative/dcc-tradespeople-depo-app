@@ -36,6 +36,10 @@ p.noSpacing {
   border: 1px solid #CED4DA;
 }
 
+.grey-box--remove-top {
+  border-top: none;
+}
+
 .grey-box > .grey-box-item:not(:first-child):before {
   content: '';
   height: 1px;
