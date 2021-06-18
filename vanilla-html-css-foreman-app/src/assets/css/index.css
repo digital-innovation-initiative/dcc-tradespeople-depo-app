@@ -9,9 +9,7 @@ h1 {
   font-size: 18px;
 }
 
-h1.bold {
-  font-weight: 700;
-}
+
 
 h1.lg {
   font-size: 40px;
@@ -33,18 +31,12 @@ p.noSpacing {
   margin-bottom: 0;
 }
 
-ul.tradesman-dashboard.container {
+
+.grey-box {
   border: 1px solid #CED4DA;
 }
 
-ul.tradesman-dashboard.container li {
-  justify-content: center;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 0;
-}
-
-ul.tradesman-dashboard.container li:not(:first-child):before {
+.grey-box > .grey-box-item:not(:first-child):before {
   content: '';
   height: 1px;
   width: 100%;
@@ -99,6 +91,13 @@ ul.tradesman-dashboard.container li:not(:first-child):before {
   cursor: pointer;
 }
 
+ul.tradesman-dashboard.container li {
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
 .custom-accordion {
   overflow: hidden;
 }
@@ -111,7 +110,7 @@ ul.tradesman-dashboard.container li:not(:first-child):before {
   height: 100%;
 }
 
-.custom-accordion .custom-accordion__item label.custom-accordion__item__label {}
+/* .custom-accordion .custom-accordion__item label.custom-accordion__item__label {} */
 
 .custom-accordion__item__content {
   max-height: 0;
@@ -121,7 +120,16 @@ ul.tradesman-dashboard.container li:not(:first-child):before {
 }
 .custom-accordion .custom-accordion__item input[type="checkbox"]:checked ~ .custom-accordion__item__content {
   max-height: 100vh;
-  padding: 1em;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
   overflow: visible;
 }
 
+/* utilities */
+.bold {
+  font-weight: 700;
+}
+
+.alt-text {
+  color: #808080;
+}
