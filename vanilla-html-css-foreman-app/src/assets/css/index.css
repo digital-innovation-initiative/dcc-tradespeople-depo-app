@@ -8,13 +8,18 @@ h1 {
   color: #000000;
   margin: 0;
   padding: .375rem 0;
-  font-weight: 600;
+  font-weight: 600 !important;
   font-size: 18px;
 }
 
-
 h1.lg {
   font-size: 40px;
+}
+h1.md {
+  font-size: 24px;
+}
+h2 {
+  font-size: 18px !important;
 }
 
 p {  
@@ -126,12 +131,9 @@ ul.tradesman-dashboard.container li {
   overflow: hidden;
 }
 .custom-accordion .custom-accordion__item input[type="checkbox"] {
-  /* position: absolute; */
   width: 100%;
   height: 100%;
 }
-
-/* .custom-accordion .custom-accordion__item label.custom-accordion__item__label {} */
 
 .custom-accordion__item__content {
   max-height: 0;
@@ -198,15 +200,26 @@ ul.tradesman-dashboard.container li {
 
 ul.trades-list {
   padding-left: 0;
+  max-height: 13.81rem;
+  overflow-y: auto;
 }
 
-ul.trades-list .trades-list__initial {
+ul.trades-list li {
+  padding: 15px 6px;
+}
+
+ul.trades-list li:hover {
+  background-color: #EFFBFF;
+  cursor: pointer;
+}
+
+.initial-circle-container, ul.trades-list .trades-list__initial {
   display: flex;
   justify-content: center;
   color: #fff;
 }
-ul.trades-list .trades-list__initial > * {
 
+.initial-circle-child, ul.trades-list .trades-list__initial > * {
   font-weight: 700;
   display: block;
   height: 24px;
@@ -216,8 +229,38 @@ ul.trades-list .trades-list__initial > * {
   font-size: 16px;
 }
 
+.assigned-user {
+  border: 1px solid #CED4DA;
+  margin: 0;
+  width: fit-content !important;
+  border-radius: 60px;
+  align-items: center;
+}
+
 ul.trades-list .trades-list__name {
   font-weight: 600;
+}
+
+.dcc-button {
+  color: #fff !important;
+  background-color: #00AFF2;
+  border-color: #00AFF2;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  height: 48px;
+  width: 100%;
+  font-weight: 600;
+  display: block;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: transform 300ms;
+}
+
+.dcc-button:hover {
+  text-decoration: none;
+  transform: scale(1.1);
 }
 
 /* utilities */

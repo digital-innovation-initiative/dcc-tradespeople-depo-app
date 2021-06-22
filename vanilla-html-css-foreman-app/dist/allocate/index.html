@@ -19,7 +19,7 @@
 <body>
   <nav class="navbar dcc-nav">
     <div class="px-4 py-2 col-6 col-md-4 col-lg-2">
-      <img src="/assets/images/dcc-logo-white.svg" class="w-100 h-100"/>
+      <img src="/assets/images/dcc-logo-white.svg" class="w-100 h-100" />
     </div>
   </nav>
   <div class="pb-3 container"></div>
@@ -28,15 +28,20 @@
     <div class="modal__background">
       <div class="modal__parent row">
         <div class="modal__content-root col-lg-6 col-md-7 col-9 px-5">
-          
-          <div class="row">
-            <div class="col">
 
+          <div class="row justify-content-center">
+            <div class="col-12 d-flex justify-content-end">
+              <a href="/dashboard">
+                <img src="../assets/images/exit-modal-cross.svg" />
+              </a>
+            </div>
+            <div class="col-10">
+              <h1 class="md">
+                Allocate Repair Job
+              </h1>
 
               <div class="input-group mb-3 trade-search">
-                <input type="text"
-                  class="form-control trade-search__field" 
-                  placeholder="Search by user or trade..."
+                <input type="text" class="form-control trade-search__field" placeholder="Search by user or trade..."
                   aria-label="user name or trade type">
                 <div class="input-group-append trade-search__button">
                   <span class="input-group-text">
@@ -49,19 +54,35 @@
                 Available Staff in Electrics Department
               </h2>
 
+              <div class="row col-auto py-2 assigned-user mx-0 my-3">
+                <div class="col-auto initial-circle-container pr-2 pl-0">
+                  <span class="initial-circle-child" style="background-color: #A710EE;">D</span>
+                </div>
+                <div class="col-auto px-2">
+                  <span>David Donnelly</span>
+                </div>
+                <div class="col-auto px-0">
+                  <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10.5" cy="10.5" r="10.5" fill="#CED4DA" />
+                    <path d="M6 6L15 15" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    <path d="M15 6L6 15" stroke="white" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+
 
               <ul class="trades-list">
                 <li class="row grey-box mx-0">
                   <div class="col-auto trades-list__initial">
                     <span style="background-color: #A710EE;">D</span>
                   </div>
-                  
+
                   <div class="col-3 trades-list__name">
                     <span>
                       David Donnelly
                     </span>
                   </div>
-                  
+
                   <div class="col-3">
                     <span>
                       Electrician
@@ -73,19 +94,19 @@
                       2 Jobs Assigned
                     </span>
                   </div>
-                  
+
                 </li>
                 <li class="row grey-box grey-box--remove-top mx-0">
                   <div class="col-auto trades-list__initial">
                     <span style="background-color: #EE10BD;">A</span>
                   </div>
-                  
+
                   <div class="col-3 trades-list__name">
                     <span>
                       Alan Green
                     </span>
                   </div>
-                  
+
                   <div class="col-3">
                     <span>
                       Electrician
@@ -97,21 +118,21 @@
                       2 Jobs Assigned
                     </span>
                   </div>
-                  
+
                 </li>
-                
+
 
                 <li class="row grey-box grey-box--remove-top mx-0">
                   <div class="col-auto trades-list__initial">
                     <span style="background-color: #10ABEE;">S</span>
                   </div>
-                  
+
                   <div class="col-3 trades-list__name">
                     <span>
                       Sarah Jennings
                     </span>
                   </div>
-                  
+
                   <div class="col-3">
                     <span>
                       Electrician
@@ -123,20 +144,20 @@
                       3 Jobs Assigned
                     </span>
                   </div>
-                  
+
                 </li>
 
                 <li class="row grey-box grey-box--remove-top mx-0">
                   <div class="col-auto trades-list__initial">
                     <span style="background-color: #EE6010;">R</span>
                   </div>
-                  
+
                   <div class="col-3 trades-list__name">
                     <span>
                       Richard Bleak
                     </span>
                   </div>
-                  
+
                   <div class="col-3">
                     <span>
                       Electrician
@@ -148,9 +169,46 @@
                       3 Jobs Assigned
                     </span>
                   </div>
-                  
+
+                </li>
+
+                <li class="row grey-box grey-box--remove-top mx-0">
+                  <div class="col-auto trades-list__initial">
+                    <span style="background-color: #56BA46;">J</span>
+                  </div>
+
+                  <div class="col-3 trades-list__name">
+                    <span>
+                      John Smith
+                    </span>
+                  </div>
+
+                  <div class="col-3">
+                    <span>
+                      Electrician
+                    </span>
+                  </div>
+
+                  <div class="col">
+                    <span>
+                      4 Jobs Assigned
+                    </span>
+                  </div>
+
                 </li>
               </ul>
+
+
+            </div>
+            <div class="col-12 d-flex justify-content-end mt-5">
+              
+                <a
+                  class="dcc-button col-3"
+                  href="/dashboard">
+                  <div>Assign</div>
+                </a>
+              
+
             </div>
           </div>
 
