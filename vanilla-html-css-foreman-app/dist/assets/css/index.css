@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+body, html {
+  font-family: 'Open Sans';
+}
 
 h1 {
   font-family: 'Open Sans';
@@ -176,7 +179,6 @@ ul.tradesman-dashboard.container li {
   background-color: #fff;
   margin-top: 20vh;
   border-radius: 4px;
-  max-width: 600px;
   padding: 30px 25px;
 }
 
@@ -220,8 +222,32 @@ ul.tradesman-dashboard.container li {
   color:#B9B9B9;
 }
 
-input[type="text"].trade-search {
+ul.trades-list {
+  padding-left: 0;
+}
 
+ul.trades-list .trades-list__initial {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+}
+ul.trades-list .trades-list__initial > * {
+
+  font-weight: 700;
+  display: block;
+  height: 24px;
+  width: 24px;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 16px;
+}
+
+ul.trades-list .trades-list__name {
+  font-weight: 600;
 }
 
 /* utilities */
