@@ -241,6 +241,28 @@ ul.trades-list .trades-list__name {
   font-weight: 600;
 }
 
+.dcc-button {
+  color: #fff !important;
+  background-color: #00AFF2;
+  border-color: #00AFF2;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  height: 48px;
+  width: 100%;
+  font-weight: 600;
+  display: block;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: transform 300ms;
+}
+
+.dcc-button:hover {
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
 /* utilities */
 .bold {
   font-weight: 700;
