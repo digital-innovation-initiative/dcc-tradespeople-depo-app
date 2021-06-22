@@ -200,6 +200,10 @@ ul.trades-list {
   padding-left: 0;
 }
 
+ul.trades-list li {
+  padding: 15px 6px;
+}
+
 ul.trades-list .trades-list__initial {
   display: flex;
   justify-content: center;
