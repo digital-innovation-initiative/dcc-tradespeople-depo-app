@@ -4,18 +4,18 @@ import { PasswordInput, InputWithValidity } from '../../components/input';
 import { LinkButton } from '../../components/button';
 import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
-import phone from 'phone';
 import _ from 'lodash';
 
-const IRELAND_COUNTRY_CODE = 'IE';
 const MINIMUM_PASSWORD_CHARS = 5;
+const MINIMUM_EMPLOYEE_NO_CHARS = 4;
+
 const StyledRow = styled(Row)`
   margin-top: 36px;
 `;
 
-const SignInPage = ({ loading }) => {
+const SignInPage = () => {
   const [ formData, setFormData ] = useState({
-    phone: {
+    employeeNo: {
       isValid: false,
       value: '',
     },
@@ -24,26 +24,24 @@ const SignInPage = ({ loading }) => {
     },
   });
 
-  function checkPhoneValidity (evt) {
+  function checkEmpNoValidity (evt) {
     const value = _.get(evt, 'target.value');
-    const number = _.head(
-      phone(value, IRELAND_COUNTRY_CODE),
-    );
+    const isValidEmpNo = `${value}`.length >= MINIMUM_EMPLOYEE_NO_CHARS;
     const re = /^[0-9\b]+$/;
     const newData = {
-      ...formData.phone,
+      ...formData.employeeNo,
     }
     if (value === '' || re.test(value)) {
       newData.value = value;
     }
-    if (number) {
+    if (isValidEmpNo) {
       newData.isValid = true;
     } else {
       newData.isValid = false;
     }
     setFormData({
       ...formData,
-      phone: newData,
+      employeeNo: newData,
     });
   }
 
@@ -66,9 +64,9 @@ const SignInPage = ({ loading }) => {
         <Col xs={11} md={8}>
           <InputWithValidity
             placeholder='Employee Number'
-            onChange={checkPhoneValidity}
-            valid={formData.phone.isValid}
-            value={formData.phone.value} />
+            onChange={checkEmpNoValidity}
+            valid={formData.employeeNo.isValid}
+            value={formData.employeeNo.value} />
         </Col>
       </Row>
 
@@ -80,8 +78,9 @@ const SignInPage = ({ loading }) => {
 
       <StyledRow className='justify-content-center'>
         <Col xs={7} md={4}>
-          <LinkButton disabled={!formData.password.isValid || !formData.phone.isValid}
-          to={!window ? '/dashboard' : '/loading/timeout'}>
+          <LinkButton
+            disabled={!formData.password.isValid || !formData.employeeNo.isValid}
+            to={!window ? '/dashboard' : '/loading/timeout'}>
             <div>
               Sign in
             </div>
