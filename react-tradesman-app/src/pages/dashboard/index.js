@@ -64,7 +64,7 @@ const Dashboard = () => {
           <H3>My Jobs</H3>
         </Row>
         <ListItem title={'Burst Kitchen Pipe'} priority='emergency' to={'/detail'} />
-        <ListItem title={'Sink tap not running'}  priority='urgent' />
+        <ListItem title={'Sink tap not running'} priority='urgent' />
         <ListItem title={'Install sink fixtures'} />
       </Container>
       {showToast && <ToastMessage>

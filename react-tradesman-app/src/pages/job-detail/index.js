@@ -25,11 +25,12 @@ const Description = ({ jobId }) => (
   </SpacedRow>
 );
 
-const IconA = ({ icon, children }) => {
+
+const IconA = ({ icon, children, ...props }) => {
   return (
-    <A>
-      <Row className='py-3'>
-        <Col xs={1}>
+    <A {...props}>
+      <Row className='pt-3'>
+        <Col xs={1} className='pr-0'>
           {icon}
         </Col>
         <Col className='text-left'>
@@ -106,7 +107,7 @@ const DetailPage = (props) => {
           <IconA icon={<LocationIcon />}>
             Get Directions
           </IconA>
-          <IconA icon={<PhoneIcon />}>
+          <IconA icon={<PhoneIcon />} href="tel:+35386934545">
             +353 869 34545
           </IconA>
         </Col>
@@ -121,7 +122,7 @@ const DetailPage = (props) => {
             Report Complete
         </Button>
       </Row>
-      {showModal && <ConfirmModal />}
+      {showModal && <ConfirmModal onHide={() => setShowModal(false)} />}
     </Container>
   );
 }

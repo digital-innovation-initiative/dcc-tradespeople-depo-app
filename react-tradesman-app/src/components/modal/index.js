@@ -44,11 +44,13 @@ const Background = styled.div`
   top: 0;
   background: rgba(0, 0, 0, 0.7);
   min-height: 100vh;
+  transition: opacity 300ms ease-in-out;
+  opacity: ${props => props.hide ? 0 : 100};
 `;
 
 const ContentRoot = styled(Col)`
   background-color: #fff;
-  margin-top: 20vh;
+  margin-top: 50vh;
   border-radius: 4px;
   max-width: 600px;
   padding: 30px 25px;
@@ -60,8 +62,8 @@ const ContentRoot = styled(Col)`
   }
 `;
 
-const Root = ({ children, ...props }) => (
-  <Background>
+const Root = ({ children, hide, ...props }) => (
+  <Background hide={hide}>
     <ModalParent {...props}>
       <ContentRoot xs={9} md={7} lg={5}>
         {children}
@@ -70,11 +72,11 @@ const Root = ({ children, ...props }) => (
   </Background>
 );
 
-const Dialog = ({ children }) => {
+const Dialog = ({ children, ...props }) => {
   const domNode = document && document.getElementById('modal-root');
   const DialogRoot = () => (
     <Portal node={domNode}>
-      <Root>
+      <Root {...props}>
         {children}
       </Root>
     </Portal>
