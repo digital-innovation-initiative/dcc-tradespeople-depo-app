@@ -48,7 +48,7 @@ const Background = styled.div`
 
 const ContentRoot = styled(Col)`
   background-color: #fff;
-  margin-top: 20vh;
+  margin-top: 50vh;
   border-radius: 4px;
   max-width: 600px;
   padding: 30px 25px;
