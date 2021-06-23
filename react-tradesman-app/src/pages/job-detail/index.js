@@ -122,7 +122,7 @@ const DetailPage = (props) => {
             Report Complete
         </Button>
       </Row>
-      {showModal && <ConfirmModal />}
+      {showModal && <ConfirmModal onHide={() => setShowModal(false)} />}
     </Container>
   );
 }
