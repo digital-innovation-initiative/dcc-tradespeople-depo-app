@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import styled from 'styled-components';
 
 import H2 from '../../components/H2';
 import H3 from '../../components/H3';
@@ -26,20 +25,14 @@ const Description = ({ jobId }) => (
   </SpacedRow>
 );
 
-const IconCol = styled(Col)`
-  display: flex;
-  width: 24px;
-  align-items: center;
-  justify-content: center;
-`;
 
 const IconA = ({ icon, children, ...props }) => {
   return (
     <A {...props}>
       <Row className='pt-3'>
-        <IconCol xs={1} className='pr-0'>
+        <Col xs={1} className='pr-0'>
           {icon}
-        </IconCol>
+        </Col>
         <Col className='text-left'>
           {children}
         </Col>
