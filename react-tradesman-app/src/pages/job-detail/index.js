@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import styled from 'styled-components';
 
 import H2 from '../../components/H2';
 import H3 from '../../components/H3';
@@ -25,13 +26,20 @@ const Description = ({ jobId }) => (
   </SpacedRow>
 );
 
-const IconA = ({ icon, children }) => {
+const IconCol = styled(Col)`
+  display: flex;
+  width: 24px;
+  align-items: center;
+  justify-content: center;
+`;
+
+const IconA = ({ icon, children, ...props }) => {
   return (
-    <A>
-      <Row className='py-3'>
-        <Col xs={1}>
+    <A {...props}>
+      <Row className='pt-3'>
+        <IconCol xs={1} className='pr-0'>
           {icon}
-        </Col>
+        </IconCol>
         <Col className='text-left'>
           {children}
         </Col>
@@ -106,7 +114,7 @@ const DetailPage = (props) => {
           <IconA icon={<LocationIcon />}>
             Get Directions
           </IconA>
-          <IconA icon={<PhoneIcon />}>
+          <IconA icon={<PhoneIcon />} href="tel:+35386934545">
             +353 869 34545
           </IconA>
         </Col>
