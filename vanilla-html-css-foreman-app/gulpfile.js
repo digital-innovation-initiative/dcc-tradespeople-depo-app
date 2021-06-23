@@ -57,6 +57,14 @@ function copyHTML () {
     );
 }
 
+function copyRedirectsFile () {
+  return src('./_redirects')
+		.pipe(plumber())
+		.pipe(
+      dest(DIST_ROOT)
+    );
+}
+
 const runBrowserSync = () => browserSync.init({
   server: {
     baseDir: './dist/',
@@ -106,12 +114,18 @@ task(
 );
 
 task(
+  'copy-redirects',
+  copyRedirectsFile,
+);
+
+task(
   'default',
   parallel(
     'copy-html',
     'copy-images',
     'copy-vendor-styles',
     'prefix-css',
+    'copy-redirects'
   )
 );
 
