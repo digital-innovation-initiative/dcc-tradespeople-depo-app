@@ -1,6 +1,7 @@
 **# DCC React Tradesman App Frontend**
 
 This project is the frontend for Dublin City Council's Beta Tradesman App.
+Written in React.js.
 
 [Live Prototype Demo](https://dcc-tradesman.netlify.app/) [![Netlify Status](https://api.netlify.com/api/v1/badges/d7314c32-5c86-4faf-ad1a-9277d097708b/deploy-status)](https://app.netlify.com/sites/dcc-tradesman/deploys)
 
